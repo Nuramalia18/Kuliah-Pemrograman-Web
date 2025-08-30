@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulir Pendaftaran</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .form-group label {
+      width: 120px;
+      display: inline-block;
+      text-align: right;
+      margin-right: 10px;
+    }
+    .form-group input[type="text"], 
+    .form-group select {
+      padding: 4px;
+      width: 180px;
+    }
+    .form-group .options {
+      display: flex;
+      gap: 10px;
+    }
+    .button {
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <hr>
+    <div class="form-group">
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama">
+    </div>
+
+    <div class="form-group">
+      <label for="alamat">Alamat:</label>
+      <input type="text" id="alamat" name="alamat">
+    </div>
+
+    <div class="form-group">
+      <label for="kota">Kota:</label>
+      <input type="text" id="kota" name="kota">
+    </div>
+
+    <div class="form-group">
+      <label for="telp">Telp:</label>
+      <input type="text" id="telp" name="telp">
+    </div>
+
+    <div class="form-group">
+      <label>Jenis Kelamin:</label>
+      <div class="options">
+        <input type="radio" name="jk" value="pria"> Pria
+        <input type="radio" name="jk" value="wanita"> Wanita
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Hoby:</label>
+      <div class="options">
+        <input type="checkbox" name="hoby" value="musik"> Musik
+        <input type="checkbox" name="hoby" value="olahraga"> Olahraga
+        <input type="checkbox" name="hoby" value="jalan"> Jalan
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="agama">Agama:</label>
+      <select id="agama" name="agama">
+        <option>Islam</option>
+        <option>Kristen</option>
+        <option>Katolik</option>
+        <option>Hindu</option>
+        <option>Buddha</option>
+        <option>Konghucu</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="asal_sekolah">Asal Sekolah:</label>
+      <input type="text" id="asal_sekolah" name="asal_sekolah">
+    </div>
+
+    <div class="form-group">
+      <label for="jurusan">Jurusan:</label>
+      <input type="text" id="jurusan" name="jurusan">
+    </div>
+    <hr>
+</div>
+    <div class="btn-container">
+      <input type="submit" value="Kirim">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+
+</body>
+</html>

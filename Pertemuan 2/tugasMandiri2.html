@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kartu Keluarga</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; /* ini penting agar kiri & kanan sejajar atas */
+      margin-top: 10px;
+    }
+    .center {
+      text-align: center;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 5px;
+      text-align: center;
+    }
+    .info {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+     .footer {
+      margin-top: 50px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 50px; /* jarak dengan tanda tangan */
+    }
+    .footer-left {
+      text-align: left;
+    }
+    .footer-center {
+      text-align: center;
+      flex: 1;
+    }
+    .footer-right {
+      text-align: right;
+    }
+     .sig-left {
+      text-align: center;
+      flex: 1;
+    }
+    .signature {
+      text-align: right;
+      margin-top: 60px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1><class="center">KARTU KELUARGA</h1>
+  <h2><class="center">No. 7307082901056091</h2>
+  
+   <div class="header">
+    <!-- KIRI -->
+    <div class="left">
+      <p><span class="bold">Nama Kepala Keluarga:</span> ISHAK</p>
+      <p><span class="bold">Alamat:</span> LAPPAE</p>
+      <p><span class="bold">RT/RW:</span> 003/001</p>
+      <p><span class="bold">Kode Pos:</span> 92672</p>
+    </div>
+
+    <!-- KANAN -->
+    <div class="right">
+      <p><span class="bold">Desa/Kelurahan:</span> SAOTENGAH</p>
+      <p><span class="bold">Kecamatan:</span> TELLU LIMPOE</p>
+      <p><span class="bold">Kabupaten/Kota:</span> SINJAI</p>
+      <p><span class="bold">Provinsi:</span> SULAWESI SELATAN</p>
+    </div>
+  </div>
+
+  <!-- TABEL DATA ANGGOTA -->
+  <table>
+    <tr>
+      <th>No</th>
+      <th>Nama Lengkap</th>
+      <th>NIK</th>
+      <th>Jenis Kelamin</th>
+      <th>Tempat Lahir</th>
+      <th>Tanggal Lahir</th>
+      <th>Agama</th>
+      <th>Pendidikan</th>
+      <th>Jenis Pekerjaan</th>
+      <th>Golongan Darah</th>
+    </tr>
+    <tr>
+      <td>1</td><td>ISHAK</td><td>7307083112800026</td><td>LAKI-LAKI</td><td>SINJAI</td><td>31-12-1982</td><td>ISLAM</td><td>TAMAT SD/SEDERAJAT</td><td>WIRASWASTA</td><td>-</td>
+    </tr>
+    <tr>
+      <td>2</td><td>ELFIRAH</td><td>7307085712850001</td><td>PEREMPUAN</td><td>SINJAI</td><td>31-12-1985</td><td>ISLAM</td><td>SLTP/SEDERAJAT</td><td>MENGURUS RUMAH TANGGA</td><td>-</td>
+    </tr>
+    <tr>
+      <td>3</td><td>NUR AMALIA</td><td>7307085060800001</td><td>PEREMPUAN</td><td>SINJAI</td><td>16-06-2006</td><td>ISLAM</td><td>TIDAK/BLM SEKOLAH</td><td>BELUM/TIDAK BEKERJA</td><td>O</td>
+    </tr>
+    <tr>
+      <td>4</td><td>RAHMAT</td><td>7307080903110001</td><td>LAKI-LAKI</td><td>SINJAI</td><td>09-03-2011</td><td>ISLAM</td><td>TIDAK/BLM SEKOLAH</td><td>BELUM/TIDAK BEKERJA</td><td>-</td>
+    </tr>
+    <tr>
+      <td>5</td><td>ANINDYA JIHAN</td><td>7307085090321002</td><td>PEREMPUAN</td><td>SINJAI</td><td>09-03-2021</td><td>ISLAM</td><td>TIDAK/BLM SEKOLAH</td><td>BELUM/TIDAK BEKERJA</td><td>-</td>
+    </tr>
+    <tr>
+      <td>6</td><td>BADE</td><td>7307080140780068</td><td>PEREMPUAN</td><td>SINJAI</td><td>01-07-1948</td><td>ISLAM</td><td>BELUM TAMAT SD/SEDERAJAT</td><td>MENGURUS RUMAH TANGGA</td><td>-</td>
+    </tr>
+  </table>
+
+  <!-- TABEL STATUS PERKAWINAN -->
+  <table>
+    <tr>
+      <th>No</th>
+      <th>Status Perkawinan</th>
+      <th>Tanggal Perkawinan/Perceraian</th>
+      <th>Status Hubungan Dalam Keluarga</th>
+      <th>Kewarganegaraan</th>
+      <th>Dokumen Imigrasi<br>No. Paspor</th>
+      <th>No. KITAP</th>
+      <th>Nama Orang Tua<br>Ayah</th>
+      <th>Nama Orang Tua<br>Ibu</th>
+    </tr>
+    <tr><td>1</td><td>KAWIN TERCATAT</td><td>22-12-2004</td><td>KEPALA KELUARGA</td><td>WNI</td><td>-</td><td>-</td><td>SULLE</td><td>BADE</td></tr>
+    <tr><td>2</td><td>KAWIN TERCATAT</td><td>22-12-2004</td><td>ISTRI</td><td>WNI</td><td>-</td><td>-</td><td>APPE</td><td>HARE</td></tr>
+    <tr><td>3</td><td>BELUM KAWIN</td><td>-</td><td>ANAK</td><td>WNI</td><td>-</td><td>-</td><td>ISHAK</td><td>ELFIRAH</td></tr>
+    <tr><td>4</td><td>BELUM KAWIN</td><td>-</td><td>ANAK</td><td>WNI</td><td>-</td><td>-</td><td>ISHAK</td><td>ELFIRAH</td></tr>
+    <tr><td>5</td><td>BELUM KAWIN</td><td>-</td><td>ANAK</td><td>WNI</td><td>-</td><td>-</td><td>ISHAK</td><td>ELFIRAH</td></tr>
+    <tr><td>6</td><td>CERAI MATI</td><td>-</td><td>ORANG TUA</td><td>WNI</td><td>-</td><td>-</td><td>UDDING</td><td>JABERIA</td></tr>
+  </table>
+
+<div class="footer">
+    <div class="footer-top">
+      <!-- KIRI -->
+      <div class="footer-left">
+        <p><span class="bold">Dikeluarkan Tanggal:</span> 16-08-2021</p>
+      </div>
+
+      <!-- TENGAH -->
+        <div class="footer-center">
+        <p class="bold">KEPALA KELUARGA</p>
+        <br><br><br> <!-- jarak untuk tanda tangan -->
+        <p class="bold">ISHAK</p>
+      </div>
+
+       <div class="footer-right">
+        <p>DINAS KEPENDUDUKAN DAN PENCATATAN SIPIL KAB. SINJAI</p>
+        <br><br><br> <!-- jarak tanda tangan pejabat -->
+        <p class="bold">Drs. AKMAL</p>
+        <p>NIP. 196212311991031110</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
