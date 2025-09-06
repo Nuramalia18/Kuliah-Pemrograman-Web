@@ -51,10 +51,3 @@ Biodata digital interaktif yang menampilkan informasi pribadi, riwayat pendidika
 ### 4. Hobi & Minat
 - Membaca novel berbagai genre
 - Menonton film dan series
-
-## 🛠️ Teknologi yang Digunakan
-
-- **HTML5**: Struktur konten website
-- **CSS3**: Styling dan layout
-- **Font Awesome 6.4.0**: Ikon vektor
-- **Google Fonts**: Font 'Segoe UI' untuk tipografi
