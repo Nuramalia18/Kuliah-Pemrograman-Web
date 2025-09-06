@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata - Nur Amalia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* Background image for white sections */
+    .content {
+      background-image: url('bcg.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: local;
+      background-blend-mode: overlay;
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #00acc1 0%, #00838f 100%);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      position: relative;
+    }
+    
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .decorations {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    
+    .decoration {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.1;
+    }
+    
+    /* Content Sections */
+    .content {
+      padding: 30px;
+    }
+    
+    .section {
+      margin-bottom: 40px;
+      padding: 25px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      color: #00838f;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #00acc1;
+    }
+    
+    .section-title i {
+      margin-right: 15px;
+      font-size: 1.8rem;
+    }
+    
+    .section-title h2 {
+      font-size: 1.8rem;
+    }
+    
+    /* Data Pribadi */
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    
+    .data-item {
+      display: flex;
+      margin-bottom: 15px;
+    }
+    
+    .data-icon {
+      min-width: 40px;
+      height: 40px;
+      background: #e0f7fa;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: #00838f;
+      font-size: 1.2rem;
+    }
+    
+    /* Pendidikan */
+    .education-item {
+      display: flex;
+      margin-bottom: 25px;
+      align-items: flex-start;
+    }
+    
+    .education-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 20px;
+      border: 2px solid #00acc1;
+      padding: 5px;
+      background: white;
+      flex-shrink: 0;
+    }
+    
+    .education-info {
+      flex: 1;
+    }
+    
+    .education-info h3 {
+      color: #00838f;
+      margin-bottom: 5px;
+    }
+    
+    .education-info .year {
+      color: #777;
+      font-style: italic;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    /* Organisasi & Hobi */
+    .org-item, .hobby-item {
+      background: #f8fdff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border-left: 4px solid #00acc1;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .org-item h3, .hobby-item h3 {
+      color: #00838f;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .org-item i, .hobby-item i {
+      margin-right: 10px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.5rem;
+      }
+      
+      .content {
+        background-attachment: scroll;
+      }
+    }
+    
+    /* Hover Effects */
+    .education-item:hover, .org-item:hover, .hobby-item:hover {
+      transform: translateY(-3px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #00838f;
+      color: white;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="decorations">
+        <div class="decoration" style="top: 20%; left: 10%;">🌸</div>
+        <div class="decoration" style="top: 60%; left: 5%;">📚</div>
+        <div class="decoration" style="top: 30%; right: 8%;">🎓</div>
+        <div class="decoration" style="top: 70%; right: 12%;">✨</div>
+      </div>
+      
+      <img src="image.jpeg" alt="Foto Profil" class="profile-img">
+      <h1>NUR AMALIA</h1>
+      <p>Mahasiswa Universitas Negeri Makassar</p>
+    </div>
+    
+    <!-- Content Section -->
+    <div class="content">
+      <!-- Data Pribadi -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-user-circle"></i>
+          <h2>Data Pribadi</h2>
+        </div>
+        
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-signature"></i>
+            </div>
+            <div>
+              <strong>Nama Lengkap</strong>
+              <p>Nur Amalia</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div>
+              <strong>Tempat, Tanggal Lahir</strong>
+              <p>Sinjai, 18 Juni 2006</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-venus"></i>
+            </div>
+            <div>
+              <strong>Jenis Kelamin</strong>
+              <p>Perempuan</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <strong>Alamat</strong>
+              <p>Jl. Dg Tata 1, Sinjai</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <strong>No. Telepon</strong>
+              <p>085322694520</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <strong>Email</strong>
+              <p>nuramalia1801@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div>
+              <strong>Instagram</strong>
+              <p>@nuramlia_18</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pendidikan -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-graduation-cap"></i>
+          <h2>Pendidikan</h2>
+        </div>
+        
+        <div class="education-item">
+          <img src="Logo SD.png" alt="Logo SD" class="education-logo">
+          <div class="education-info">
+            <h3>SDN 48 Lappae</h3>
+            <span class="year">2012 - 2018</span>
+            <p>Sekolah Dasar di Lappae, Sinjai</p>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <img src="logo smp.png" alt="Logo SMP" class="education-logo">
+          <div class="education-info">
+            <h3>SMPN 19 Sinjai</h3>
+            <span class="year">2019 - 2021</span>
+            <p>Sekolah Menengah Pertama di Sinjai</p>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <img src="logo smk.jpeg" alt="Logo SMK" class="education-logo">
+          <div class="education-info">
+            <h3>SMK Mannanti</h3>
+            <span class="year">2021 - 2024</span>
+            <p>Jurusan Teknik Komputer dan Jaringan</p>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <img src="logo unm.png" alt="Logo UNM" class="education-logo">
+          <div class="education-info">
+            <h3>Universitas Negeri Makassar</h3>
+            <span class="year">2024 - Sekarang</span>
+            <p>Prodi Teknik Komputer (S1)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Organisasi -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-users"></i>
+          <h2>Pengalaman Organisasi</h2>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-heartbeat"></i> Anggota PMR SMPN 19 Sinjai</h3>
+          <p>Palang Merah Remaja di sekolah menengah pertama</p>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-campground"></i> Ketua Pramuka SMK Mannanti</h3>
+          <p>Memimpin kegiatan kepramukaan di SMK</p>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-pray"></i> Pengurus Ekstrakurikuler Rohis SMK Mannanti</h3>
+          <p>Pengurus Rohani Islam di sekolah menengah kejuruan</p>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-dance"></i> Anggota Ekstrakurikuler Seni Tari</h3>
+          <p>Aktif dalam kegiatan seni tari tradisional dan modern</p>
+        </div>
+      </div>
+      
+      <!-- Hobi -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-heart"></i>
+          <h2>Hobi & Minat</h2>
+        </div>
+        
+        <div class="hobby-item">
+          <h3><i class="fas fa-book-reader"></i> Membaca Novel</h3>
+          <p>Menikmati berbagai genre novel fiksi dan non-fiksi</p>
+        </div>
+        
+        <div class="hobby-item">
+          <h3><i class="fas fa-film"></i> Menonton Film & Series</h3>
+          <p>Menonton film drama, dokumenter, dan series edukatif</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2025 Biodata Nur Amalia. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
