@@ -14,30 +14,27 @@
     
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
+      background: linear-gradient(135deg, #026471ff 0%, #bbdefb 100%);
       color: #333;
       line-height: 1.6;
-      padding: 20px;
+      min-height: 100vh;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
     }
     
     .container {
-      max-width: 1000px;
-      margin: 0 auto;
+      width: 100%;
+      flex: 1;
       background: white;
-      border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
       position: relative;
-    }
-    
-    /* Background image for white sections */
-    .content {
-      background-image: url('bcg.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: local;
-      background-blend-mode: overlay;
-      background-color: rgba(255, 255, 255, 0.85);
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px;
+      margin: 20px auto;
+      border-radius: 15px;
+      overflow: hidden;
     }
     
     /* Header Section */
@@ -45,28 +42,30 @@
       background: linear-gradient(135deg, #00acc1 0%, #00838f 100%);
       color: white;
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
       position: relative;
     }
     
     .profile-img {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
       border: 5px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     
     .header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 5px;
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+      font-weight: 700;
     }
     
     .header p {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       opacity: 0.9;
+      margin-bottom: 25px;
     }
     
     .decorations {
@@ -76,25 +75,34 @@
       top: 0;
       left: 0;
       pointer-events: none;
+      overflow: hidden;
     }
     
     .decoration {
       position: absolute;
-      font-size: 2rem;
+      font-size: 2.5rem;
       opacity: 0.1;
     }
     
     /* Content Sections */
     .content {
-      padding: 30px;
+      padding: 40px;
+      flex: 1;
+      background: #f8fdff;
+      background-image: 
+        radial-gradient(#00acc1 0.5px, transparent 0.5px),
+        radial-gradient(#00acc1 0.5px, #f8fdff 0.5px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
     }
     
     .section {
       margin-bottom: 40px;
-      padding: 25px;
-      border-radius: 12px;
-      background-color: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(5px);
     }
     
     .section:last-child {
@@ -105,62 +113,90 @@
       display: flex;
       align-items: center;
       color: #00838f;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
       border-bottom: 2px solid #00acc1;
     }
     
     .section-title i {
       margin-right: 15px;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     
     .section-title h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 600;
     }
     
     /* Data Pribadi */
     .data-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
     }
     
     .data-item {
       display: flex;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      align-items: center;
     }
     
     .data-icon {
-      min-width: 40px;
-      height: 40px;
+      min-width: 50px;
+      height: 50px;
       background: #e0f7fa;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 15px;
+      margin-right: 20px;
       color: #00838f;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .data-item div {
+      flex: 1;
+    }
+    
+    .data-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #00838f;
+      font-size: 1.1rem;
+    }
+    
+    .data-item p {
+      font-size: 1.1rem;
     }
     
     /* Pendidikan */
     .education-item {
       display: flex;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       align-items: flex-start;
+      padding: 15px;
+      border-radius: 12px;
+      background: #f8fdff;
+      transition: all 0.3s ease;
+    }
+    
+    .education-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     
     .education-logo {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       object-fit: cover;
-      margin-right: 20px;
+      margin-right: 25px;
       border: 2px solid #00acc1;
       padding: 5px;
       background: white;
       flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     
     .education-info {
@@ -169,71 +205,239 @@
     
     .education-info h3 {
       color: #00838f;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      font-size: 1.4rem;
     }
     
     .education-info .year {
       color: #777;
       font-style: italic;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: block;
+      font-size: 1.1rem;
+    }
+    
+    .education-info p {
+      font-size: 1.1rem;
     }
     
     /* Organisasi & Hobi */
     .org-item, .hobby-item {
       background: #f8fdff;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      border-left: 4px solid #00acc1;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border-left: 5px solid #00acc1;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+    
+    .org-item:hover, .hobby-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
     
     .org-item h3, .hobby-item h3 {
       color: #00838f;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
+      font-size: 1.3rem;
     }
     
     .org-item i, .hobby-item i {
-      margin-right: 10px;
+      margin-right: 12px;
+      font-size: 1.2rem;
     }
     
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .data-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .header h1 {
-        font-size: 2rem;
-      }
-      
-      .section-title h2 {
-        font-size: 1.5rem;
-      }
-      
-      .content {
-        background-attachment: scroll;
-      }
+    .org-item p, .hobby-item p {
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
     
-    /* Hover Effects */
-    .education-item:hover, .org-item:hover, .hobby-item:hover {
-      transform: translateY(-3px);
-      transition: transform 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Footer Logo */
+    .footer-logo {
+      text-align: center;
+      padding: 25px;
+      background: #00838f;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .footer-logo-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
     
     /* Footer */
     .footer {
       text-align: center;
-      padding: 20px;
-      background: #00838f;
+      padding: 25px;
+      background: #007c8a;
       color: white;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
+    
+    .footer p {
+      margin-bottom: 15px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .data-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .header {
+        padding: 30px 15px;
+      }
+      
+      .header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .header p {
+        font-size: 1.2rem;
+      }
+      
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .content {
+        padding: 25px 15px;
+      }
+      
+      .section {
+        padding: 20px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.6rem;
+      }
+      
+      .section-title i {
+        font-size: 1.6rem;
+      }
+      
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .education-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .education-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .social-media {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .social-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+      
+      .footer-logo-img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+    
+    /* Social Media Buttons */
+    .social-media {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 25px;
+      flex-wrap: nowrap;
+    }
+    
+    .social-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .social-btn:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .social-btn.instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    
+    .social-btn.whatsapp {
+      background: #25D366;
+    }
+    
+    .social-btn.linkedin {
+      background: #0077B5;
+    }
+    
+    .social-btn.github {
+      background: #333;
+    }
+    
+    /* Footer Social Media */
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: nowrap;
+    }
+    
+    .footer-social .social-btn {
+      width: 45px;
+      height: 45px;
+      font-size: 1.3rem;
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .section {
+      animation: fadeIn 0.6s ease forwards;
+    }
+    
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
   </style>
 </head>
 <body>
@@ -298,7 +502,7 @@
             </div>
             <div>
               <strong>Alamat</strong>
-              <p>Jl. Dg Tata 1, Sinjai</p>
+              <p>Jl. Dg Tata 1, Makassar</p>
             </div>
           </div>
           
@@ -425,10 +629,33 @@
       </div>
     </div>
     
+    <!-- Footer Logo Section -->
+    <div class="footer-logo">
+      <img src="logo unm.png" alt="Logo UNM" class="footer-logo-img">
+      <div class="footer-logo-text">Universitas Negeri Makassar</div>
+      
+      <!-- Social Media Buttons in Footer -->
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nrmlia_18?igsh=bXJidjN2OGl1eTl3" target="_blank" class="social-btn instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/qr/W6NUQGSTSKW6N1" target="_blank" class="social-btn whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nur-amalia-563b2437a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-btn linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Nuramalia18/Kuliah-Pemrograman-Web/tree/master" target="_blank" class="social-btn github">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+    
     <!-- Footer -->
     <div class="footer">
-      <p>&copy; 2025 Biodata Nur Amalia. All rights reserved.</p>
+      <p>&copy; 2025 Biodata Nur Amalia. Made With Heart and Love.</p>
     </div>
+    
   </div>
 </body>
 </html>

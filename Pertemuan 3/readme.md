@@ -51,3 +51,13 @@ Biodata digital interaktif yang menampilkan informasi pribadi, riwayat pendidika
 ### 4. Hobi & Minat
 - Membaca novel berbagai genre
 - Menonton film dan series
+
+### 5. Pembuat 
+** Nur Amalia **
+-github : [https://github.com/Nuramalia18/Kuliah-Pemrograman-Web/tree/master]
+-LinkedIn :[https://www.linkedin.com/in/nur-amalia-563b2437a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app] 
+-Email :nuramlaia1801@gmail.com
+
+---
+
+Dibuat dengan hati dan cinta
