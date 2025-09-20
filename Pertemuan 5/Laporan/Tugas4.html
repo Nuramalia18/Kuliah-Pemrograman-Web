@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Bangun Ruang</title>
+</head>
+<body>
+    <h1>Perhitungan Bangun Ruang</h1>
+    
+    <h2>1. Kubus</h2>
+    <p>Masukkan panjang sisi kubus:</p>
+    <input type="number" id="sisiKubus" placeholder="Panjang sisi">
+    <button onclick="hitungKubus()">Hitung</button>
+    <p id="hasilKubus"></p>
+    
+    <h2>2. Tabung</h2>
+    <p>Masukkan jari-jari dan tinggi tabung:</p>
+    <input type="number" id="jariTabung" placeholder="Jari-jari">
+    <input type="number" id="tinggiTabung" placeholder="Tinggi">
+    <button onclick="hitungTabung()">Hitung</button>
+    <p id="hasilTabung"></p>
+    
+    <h2>3. Bola</h2>
+    <p>Masukkan jari-jari bola:</p>
+    <input type="number" id="jariBola" placeholder="Jari-jari">
+    <button onclick="hitungBola()">Hitung</button>
+    <p id="hasilBola"></p>
+
+    <script>
+        // 1. Fungsi untuk menghitung kubus
+        function hitungKubus() {
+            // Ambil nilai dari input
+            let sisi = document.getElementById("sisiKubus").value;
+            
+            // Validasi input
+            if (sisi === "" || sisi <= 0) {
+                document.getElementById("hasilKubus").innerHTML = 
+                    "Masukkan nilai sisi yang valid!";
+                return;
+            }
+            
+            // Konversi ke number
+            sisi = parseFloat(sisi);
+            
+            // Hitung volume dan luas permukaan
+            let volume = Math.pow(sisi, 3);
+            let luasPermukaan = 6 * Math.pow(sisi, 2);
+            
+            // Tampilkan hasil
+            document.getElementById("hasilKubus").innerHTML = 
+                "Volume Kubus: " + volume.toFixed(2) + "<br>" +
+                "Luas Permukaan Kubus: " + luasPermukaan.toFixed(2);
+        }
+        
+        // 2. Fungsi untuk menghitung tabung
+        function hitungTabung() {
+            // Ambil nilai dari input
+            let jariJari = document.getElementById("jariTabung").value;
+            let tinggi = document.getElementById("tinggiTabung").value;
+            
+            // Validasi input
+            if (jariJari === "" || tinggi === "" || jariJari <= 0 || tinggi <= 0) {
+                document.getElementById("hasilTabung").innerHTML = 
+                    "Masukkan nilai jari-jari dan tinggi yang valid!";
+                return;
+            }
+            
+            // Konversi ke number
+            jariJari = parseFloat(jariJari);
+            tinggi = parseFloat(tinggi);
+            
+            // Hitung volume dan luas permukaan
+            let volume = Math.PI * Math.pow(jariJari, 2) * tinggi;
+            let luasPermukaan = (2 * Math.PI * Math.pow(jariJari, 2)) + (2 * Math.PI * jariJari * tinggi);
+            
+            // Tampilkan hasil
+            document.getElementById("hasilTabung").innerHTML = 
+                "Volume Tabung: " + volume.toFixed(2) + "<br>" +
+                "Luas Permukaan Tabung: " + luasPermukaan.toFixed(2);
+        }
+        
+        // 3. Fungsi untuk menghitung bola
+        function hitungBola() {
+            // Ambil nilai dari input
+            let jariJari = document.getElementById("jariBola").value;
+            
+            // Validasi input
+            if (jariJari === "" || jariJari <= 0) {
+                document.getElementById("hasilBola").innerHTML = 
+                    "Masukkan nilai jari-jari yang valid!";
+                return;
+            }
+            
+            // Konversi ke number
+            jariJari = parseFloat(jariJari);
+            
+            // Hitung volume dan luas permukaan
+            let volume = (4/3) * Math.PI * Math.pow(jariJari, 3);
+            let luasPermukaan = 4 * Math.PI * Math.pow(jariJari, 2);
+            
+            // Tampilkan hasil
+            document.getElementById("hasilBola").innerHTML = 
+                "Volume Bola: " + volume.toFixed(2) + "<br>" +
+                "Luas Permukaan Bola: " + luasPermukaan.toFixed(2);
+        }
+    </script>
+</body>
+</html>
