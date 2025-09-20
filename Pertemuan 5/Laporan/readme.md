@@ -181,7 +181,7 @@ output:
 <img src="images/9a.png" alt="Output percobaan9.html">
 <img src="images/9lulus.png" alt="Output percobaan9.html">
 <img src="images/9b.png" alt="Output percobaan9.html">
-<img src="images/9tdkLlulus.png" alt="Output percobaan9.html">
+<img src="images/9tdkLulus.png" alt="Output percobaan9.html">
 
     1. Fungsi prompt()
 javascript
