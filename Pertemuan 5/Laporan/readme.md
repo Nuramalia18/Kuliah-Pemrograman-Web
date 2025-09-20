@@ -1,6 +1,7 @@
 ## Analisis Laporan
 
 ## 1. Percobaan2a.html
+output:
 <img src="images/Percobaan2a.png" alt="Output percobaan2a.html">
 
 Kode HTML pada percobaan ini merupakan contoh implementasi JavaScript yang diletakkan pada dua lokasi berbeda dalam struktur dokumen. Dokumen ini memiliki judul "contoh JavaScript" yang ditentukan dalam tag <TITLE>. Pada bagian <HEAD>, terdapat script JavaScript pertama yang menggunakan metode document.write() untuk menampilkan teks "Program JavaSript Aku di kepala". Penempatan script di head menyebabkan kode ini dieksekusi selama proses loading halaman, sebelum konten body dirender, sehingga teks akan muncul di bagian paling atas halaman.
@@ -11,6 +12,7 @@ Selanjutnya, dalam tag <BODY>, terdapat script JavaScript kedua yang juga menggu
 Kode HTML ini menunjukkan implementasi JavaScript yang diletakkan di dua lokasi berbeda sama halnya pada Percobaan2a.html dan hanya saja pada Pecobaan ini mencoba memuat file JavaScript eksternal yang ditentukan dalam tag  <SCRIPT LANGUAGE= "Javascript" SRC="Percobaan2b.js" > </SCRIPT>
 
 ## Percobaan2C.html
+output:
 <img src="images/2c.png" alt="Output percobaan2C.html">
 
 Kode HTML ini merupakan contoh implementasi event handling dalam JavaScript yang fokus pada penggunaan event onclick. Dokumen ini memiliki judul "Belajar Javascript : Mengenal Event Pada Javascript" dan menampilkan dua heading yang menjelaskan tentang event pada JavaScript dan program web event one click. Pada bagian <body>, terdapat sebuah elemen button yang telah diberi event handler onclick secara inline yang memanggil fungsi tampilkan_nama() ketika tombol diklik oleh pengguna.
@@ -19,6 +21,7 @@ Setelah tombol, terdapat elemen div kosong dengan <id="hasil"> yang berfungsi se
 Dimana eventHandler adalah nama dari event tersebut.
 
 ## 3. Percobaan2d.html
+output:
 <img src="images/2d.png" alt="Output percobaan2d.html">
 
 a. Struktur HTML
@@ -31,6 +34,7 @@ Pertama: Menampilkan "Selamat Belajar Angkatan 2019" diikuti line break (<br>)
 Kedua: Menampilkan "JavaScript Pemrograman WEB Teknik Komputer"
 
 ## 4. Percobaan3.html
+output:
 <img src="images/3.png" alt="Output percobaan3.html">
 <img src="images/3b.png" alt="Output percobaan3b.html">
 
@@ -51,6 +55,7 @@ Pengguna memasukkan nama
 Script menampilkan "Hai, [nama]" pada halaman
 
 ## 5. Percobaan4contoh1.html
+output:
 <img src="images/4.1.png" alt="Output percobaan4Contoh1.html">
 
 Kode HTML ini merupakan contoh penggunaan alert() box dalam JavaScript untuk menampilkan pesan dialog kepada pengguna. Kode ini demonstrasi sederhana bagaimana JavaScript dapat menampilkan pesan peringatan atau konfirmasi kepada pengguna saat halaman web dimuat.
@@ -71,6 +76,7 @@ Pengguna harus mengklik "OK" untuk melanjutkan
 Setelah alert ditutup, halaman akan ditampilkan (meski kosong)
 
 ## 6. Percobaan4contoh2.html
+output:
 <img src="images/4.2.png" alt="Output percobaan4Contoh2.html">
 <img src="images/konfirmasi4.2.png" alt="Output percobaan2C.html">
 <img src="images/konfirmasi false.png" alt="Output percobaan2C.html">
@@ -94,11 +100,13 @@ Pengguna memilih "OK" (true) atau "Cancel" (false)
 Script menampilkan "Jawaban Anda: true" atau "Jawaban Anda: false"
 
 ## 7. Percobaan5a.html
+output:
 <img src="images/5a.png" alt="Output percobaan5a.html">
 
 Kode JavaScript ini demonstrasi dasar deklarasi variabel, assignment nilai, dan operasi aritmatika. Kode menunjukkan cara kerja variabel dan operasi perkalian dalam JavaScript.
 
 ## 8. Percobaan5b.html
+output:
 <img src="images/5b.png" alt="Output percobaan5b.html">
 
     1. Variabel Scope
@@ -114,6 +122,7 @@ Return 8
 Variabel global a sekarang bernilai 8
 
 ## 9. Percobaan5b2.html
+output:
 <img src="images/5b2.png" alt="Output percobaan5b2.html">
 
 Kode JavaScript ini demonstrasi konsep variable scope dan shadowing dalam fungsi. Kode menunjukkan perbedaan antara variabel global dan lokal.
@@ -135,6 +144,7 @@ Return nilai lokal a = 8
 Variabel global a tetap 12 (tidak terpengaruh).
 
 ## 10. Percobaan7.html
+output:
 <img src="images/7.png" alt="Output percobaan7.html">
 
 Kode JavaScript ini demonstrasi penggunaan fungsi parseInt() dan parseFloat() untuk konversi string menjadi bilangan. Kode menunjukkan berbagai skenario konversi dan perilaku fungsi-fungsi tersebut terhadap input yang berbeda.
@@ -150,6 +160,7 @@ Berhenti membaca ketika menemukan karakter non-numerik (kecuali titik desimal pe
 Menerima format desimal
 
 ## 11. Percobaan8.html
+output:
 <img src="images/8.png" alt="Output percobaan8.html">
 
 Kode JavaScript ini demonstrasi operasi matematika dasar dalam JavaScript. Kode menunjukkan penggunaan operator aritmatika untuk melakukan perhitungan sederhana dan menampilkan hasilnya di halaman web.
@@ -166,10 +177,11 @@ Menggunakan concatenation string dengan operator +
 Tag <BR> untuk line break
 
 ## 12. Percobaan9.html
+output:
 <img src="images/9a.png" alt="Output percobaan9.html">
 <img src="images/9lulus.png" alt="Output percobaan9.html">
 <img src="images/9b.png" alt="Output percobaan9.html">
-<img src="images/9tidakLlulus.png" alt="Output percobaan9.html">
+<img src="images/9tdkLlulus.png" alt="Output percobaan9.html">
 
     1. Fungsi prompt()
 javascript
@@ -183,7 +195,6 @@ Mengembalikan string (bukan number)
     2. Operator Ternary
 javascript
 var hasil = (nilai >= 60) ? "Lulus" : "Tidak Lulus";
-Syntax: condition ? exprIfTrue : exprIfFalse
 Kondisi: nilai >= 60
 True: "Lulus"
 False: "Tidak Lulus"
@@ -193,16 +204,18 @@ javascript
 document.write("Hasil: " + hasil);
 
 ## 13. Tugas1.html
+output:
 <img src="images/tugas1.png" alt="OutputTugas1.html">
 
-Kode JavaScript ini demonstrasi penggunaan fungsi parseInt() dan parseFloat() untuk konversi string menjadi bilangan. Kode menunjukkan berbagai skenario konversi dan perilaku fungsi-fungsi tersebut terhadap input yang berbeda.
+## 14. Tugas2.html
+Output:
+<img src="images/array.png" alt="OutputTugas2.html">
 
-    1. Fungsi parseInt()
-Mengkonversi string menjadi bilangan bulat (integer)
-Berhenti membaca ketika menemukan karakter non-numerik
-Mengabaikan bagian desimal
+## 15. Tugas3.html
+Output:
+<img src="images/kalkulator.png" alt="OutputTugas3.html">
+<img src="images/hasil.png" alt="OutputTugas3.html">
 
-    2. Fungsi parseFloat()
-Mengkonversi string menjadi bilangan pecahan (floating-point)
-Berhenti membaca ketika menemukan karakter non-numerik (kecuali titik desimal pertama)
-Menerima format desimal
+## 16. Tugas4.html
+Output:
+<img src="images/rumus.png" alt="OutputTugas3.html">

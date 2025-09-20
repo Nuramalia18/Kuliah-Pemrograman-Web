@@ -1,201 +1,56 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Kalkulator Sederhana</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-        }
-        .calculator {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-        }
-        .display {
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            padding: 10px;
-            text-align: right;
-            font-size: 24px;
-            height: 40px;
-            overflow: hidden;
-        }
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-        button {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        button:hover {
-            background-color: #f0f0f0;
-        }
-        .operator {
-            background-color: #f8f9fa;
-            font-weight: bold;
-        }
-        .equals {
-            background-color: #4CAF50;
-            color: white;
-            grid-column: span 2;
-        }
-        .clear {
-            background-color: #ff5252;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Kalkulator Sederhana</title>
 </head>
 <body>
-    <div class="calculator">
-        <div class="display" id="display">0</div>
-        <div class="buttons">
-            <button class="clear" onclick="clearDisplay()">C</button>
-            <button onclick="backspace()">⌫</button>
-            <button class="operator" onclick="appendOperator('%')">%</button>
-            <button class="operator" onclick="appendOperator('/')">/</button>
-            
-            <button onclick="appendNumber('7')">7</button>
-            <button onclick="appendNumber('8')">8</button>
-            <button onclick="appendNumber('9')">9</button>
-            <button class="operator" onclick="appendOperator('*')">×</button>
-            
-            <button onclick="appendNumber('4')">4</button>
-            <button onclick="appendNumber('5')">5</button>
-            <button onclick="appendNumber('6')">6</button>
-            <button class="operator" onclick="appendOperator('-')">-</button>
-            
-            <button onclick="appendNumber('1')">1</button>
-            <button onclick="appendNumber('2')">2</button>
-            <button onclick="appendNumber('3')">3</button>
-            <button class="operator" onclick="appendOperator('+')">+</button>
-            
-            <button onclick="appendNumber('0')">0</button>
-            <button onclick="appendNumber('.')">.</button>
-            <button class="equals" onclick="calculate()">=</button>
-        </div>
-    </div>
 
-    <script>
-        let currentInput = '0';
-        let previousInput = '';
-        let operation = null;
-        let resetScreen = false;
-        
-        const display = document.getElementById('display');
-        
-        function updateDisplay() {
-            display.textContent = currentInput;
-        }
-        
-        function appendNumber(number) {
-            if (currentInput === '0' || resetScreen) {
-                currentInput = '';
-                resetScreen = false;
-            }
-            
-            // Cegah multiple decimal points
-            if (number === '.' && currentInput.includes('.')) return;
-            
-            currentInput += number;
-            updateDisplay();
-        }
-        
-        function appendOperator(op) {
-            if (operation !== null) calculate();
-            previousInput = currentInput;
-            operation = op;
-            resetScreen = true;
-        }
-        
-        function calculate() {
-            let computation;
-            const prev = parseFloat(previousInput);
-            const current = parseFloat(currentInput);
-            
-            if (isNaN(prev) || isNaN(current)) return;
-            
-            switch (operation) {
-                case '+':
-                    computation = prev + current;
-                    break;
-                case '-':
-                    computation = prev - current;
-                    break;
-                case '*':
-                    computation = prev * current;
-                    break;
-                case '/':
-                    if (current === 0) {
-                        computation = 'Error';
-                    } else {
-                        computation = prev / current;
-                    }
-                    break;
-                case '%':
-                    computation = prev % current;
-                    break;
-                default:
-                    return;
-            }
-            
-            currentInput = computation.toString();
-            operation = null;
-            previousInput = '';
-            resetScreen = true;
-            updateDisplay();
-        }
-        
-        function clearDisplay() {
-            currentInput = '0';
-            previousInput = '';
-            operation = null;
-            updateDisplay();
-        }
-        
-        function backspace() {
-            if (currentInput.length === 1) {
-                currentInput = '0';
-            } else {
-                currentInput = currentInput.slice(0, -1);
-            }
-            updateDisplay();
-        }
-       
-        document.addEventListener('keydown', function(event) {
-            if (/[0-9]/.test(event.key)) {
-                appendNumber(event.key);
-            } else if (event.key === '.') {
-                appendNumber('.');
-            } else if (event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/') {
-                appendOperator(event.key);
-            } else if (event.key === 'Enter' || event.key === '=') {
-                event.preventDefault();
-                calculate();
-            } else if (event.key === 'Escape') {
-                clearDisplay();
-            } else if (event.key === 'Backspace') {
-                backspace();
-            } else if (event.key === '%') {
-                appendOperator('%');
-            }
-        });
-    </script>
+  <h3>Kalkulator</h3>
+  <input type="text" id="display"><br><br>
+
+  <button onclick="appendChar('1')">1</button>
+  <button onclick="appendChar('2')">2</button>
+  <button onclick="appendChar('3')">3</button>
+  <button onclick="appendChar('+')">+</button>
+  <br>
+
+  <button onclick="appendChar('4')">4</button>
+  <button onclick="appendChar('5')">5</button>
+  <button onclick="appendChar('6')">6</button>
+  <button onclick="appendChar('-')">-</button>
+  <br>
+
+  <button onclick="appendChar('7')">7</button>
+  <button onclick="appendChar('8')">8</button>
+  <button onclick="appendChar('9')">9</button>
+  <button onclick="appendChar('*')">*</button>
+  <br>
+
+  <button onclick="appendChar('0')">0</button>
+  <button onclick="appendChar('/')">/</button>
+  <button onclick="calculateResult()">=</button>
+  <button onclick="clearDisplay()">C</button>
+
+  <script>
+    const display = document.getElementById("display");
+
+    function appendChar(char) {
+      display.value += char;
+    }
+
+    function clearDisplay() {
+      display.value = "";
+    }
+
+    function calculateResult() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = "Error";
+      }
+    }
+  </script>
+
 </body>
 </html>
