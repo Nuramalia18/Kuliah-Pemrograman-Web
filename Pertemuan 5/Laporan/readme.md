@@ -185,7 +185,7 @@ output:
 
 ## 13. Tugas1.html
 output:
-<img src="images/Tugas1.png" alt="OutputTugas1.html">
+<img src="images/Tugas1.jpg" alt="OutputTugas1.html">
 
 ## 14. Tugas2.html
 Output:
