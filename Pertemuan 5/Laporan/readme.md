@@ -183,39 +183,18 @@ output:
 <img src="images/9b.png" alt="Output percobaan9.html">
 <img src="images/9tdkLulus.png" alt="Output percobaan9.html">
 
-    1. Fungsi prompt()
-javascript
-var nilai = prompt("Nilai (0-100): ", 0);
-Menampilkan dialog input kepada user
-
-Parameter pertama: pesan "Nilai (0-100): "
-Parameter kedua: nilai default "0"
-Mengembalikan string (bukan number)
-
-    2. Operator Ternary
-javascript
-var hasil = (nilai >= 60) ? "Lulus" : "Tidak Lulus";
-Kondisi: nilai >= 60
-True: "Lulus"
-False: "Tidak Lulus"
-
-    3. Output Result
-javascript
-document.write("Hasil: " + hasil);
-
 ## 13. Tugas1.html
 output:
-<img src="images/tugas1.png" alt="OutputTugas1.html">
+<img src="images/Tugas1.png" alt="OutputTugas1.html">
 
 ## 14. Tugas2.html
 Output:
-<img src="images/array.png" alt="OutputTugas2.html">
+<img src="images/Tugas2.png" alt="OutputTugas2.html">
 
 ## 15. Tugas3.html
 Output:
-<img src="images/kalkulator.png" alt="OutputTugas3.html">
-<img src="images/hasil.png" alt="OutputTugas3.html">
+<img src="images/Tugas3.png" alt="OutputTugas3.html">
 
 ## 16. Tugas4.html
 Output:
-<img src="images/rumus.png" alt="OutputTugas3.html">
+<img src="images/Tugas4.png" alt="OutputTugas4.html">

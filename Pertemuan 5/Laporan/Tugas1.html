@@ -1,27 +1,119 @@
-<HTML>
-<HEAD>
-<TITLE>Konversi Bilangan</TITLE>
-</HEAD>
-<BODY>
-<SCRIPT LANGUAGE = "JavaScript" >
-<!--
-var a = parseInt( "42" );
-document.write( "1." + a + "<BR>" );
-a = parseInt( "63.9" );
-document.write(" 2." + a + "<BR>" );
-var a = parseInt( "63A" );
-document.write( " 3." + a + "<BR>" );
-a = parseInt(" A42.5" );
-document.write( " 4." + a +"<BR>" );
-var b = parseFloat(" 27" );
-document.write( " 5." + b + "<BR>" );
-b = parseFloat( "56" );
-document.write( " 6." + b +"<BR>" );
-var b = parseFloat( "A56.8" );
-document.write( " 7." + b +"<BR>" );
-b = parseFloat( "A27.5" );
-    document.write(" 8." + b +"<BR>" )
-//->
-</SCRIPT>
-</BODY>
-</HTML>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Konversi Bilangan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, white 0%, #2575fc 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2575fc;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #6a11cb;
+        }
+        
+        .output-container {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .output-item {
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .output-item:hover {
+            background-color: #e6f7ff;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Konversi Bilangan JavaScript</h1>        
+        <div class="output-container">
+            <script>
+                document.write('<div class="output-item">');
+                var a = parseInt("42");
+                document.write("1. " + a + "<BR>");
+                document.write('</div>');
+                
+                document.write('<div class="output-item">');
+                a = parseInt("63.9");
+                document.write("2. " + a + "<BR>");
+                document.write('</div>');
+                
+                document.write('<div class="output-item">');
+                a = parseInt("63A");
+                document.write("3. " + a + "<BR>");
+                document.write('</div>');
+                
+                document.write('<div class="output-item">');
+                a = parseInt("A42.5");
+                document.write("4. " + a + "<BR>");
+                document.write('</div>');
+                
+                document.write('<div class="output-item success">');
+                var b = parseFloat("27");
+                document.write("5. " + b + "<BR>");
+                document.write('</div>');
+                
+                document.write('<div class="output-item success">');
+                b = parseFloat("56");
+                document.write("6. " + b + "<BR>");
+                document.write('</div>');
+                
+                document.write('<div class="output-item nan">');
+                b = parseFloat("A56.8");
+                document.write("7. " + b + "<BR>");
+                document.write('</div>');
+                
+                document.write('<div class="output-item nan">');
+                b = parseFloat("A27.5");
+                document.write("8. " + b + "<BR>");
+                document.write('</div>');
+            </script>
+        </div>
+    </div>
+</body>
+</html>
