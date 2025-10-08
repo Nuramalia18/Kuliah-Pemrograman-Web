@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - KOPI CUSS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .font-pacifico { font-family: 'Pacifico', cursive; }
+ 
+        body {
+            background: linear-gradient(-45deg, #18181b, #27272a, #1c1917, #292524);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.3), transparent);
+            border-radius: 50%;
+            animation: float-particle 20s infinite;
+        }
+        
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+ 
+        nav {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
+            box-shadow: 0 4px 30px rgba(220, 38, 38, 0.2);
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        body { padding-top: 80px; }
+
+        .cart-icon {
+            position: relative;
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .cart-count { 
+            position: absolute; 
+            top: -8px; 
+            right: -8px; 
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white; 
+            border-radius: 50%; 
+            width: 20px; 
+            height: 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 10px; 
+            font-weight: bold;
+            border: 2px solid #1f2937;
+            z-index: 10;
+            min-width: 20px;
+            padding: 0 4px;
+            animation: popIn 0.3s ease;
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(39,39,42,0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid #dc2626;
+            z-index: 40;
+            animation: slideDown 0.3s ease;
+        }
+        .mobile-menu.active { display: block; }
+        .mobile-menu ul { padding: 1rem 0; }
+        .mobile-menu li {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .mobile-menu li:hover {
+            background: rgba(220, 38, 38, 0.1);
+            padding-left: 2rem;
+        }
+        .mobile-menu li:last-child { border-bottom: none; }
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+        .mobile-menu a:hover { color: #dc2626; }
+        
+        .hamburger { transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-6px); }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-effect {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .glass-effect:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(220, 38, 38, 0.5);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+        
+        .color-change-btn { 
+            background: linear-gradient(135deg, #dc2626, #ea580c, #dc2626);
+            background-size: 200% 200%;
+            animation: gradientShiftBtn 3s ease infinite;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientShiftBtn {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .color-change-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .color-change-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .color-change-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.5);
+        }
+        
+        .logo-container {
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.8)); }
+        }
+        
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cart-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .cart-content {
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border-radius: 25px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid #dc2626;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+            animation: modalSlideIn 0.4s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .cart-header {
+            padding: 25px;
+            border-bottom: 2px solid #374151;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), transparent);
+        }
+        
+        .cart-items {
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #374151;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item:hover {
+            background: rgba(220, 38, 38, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .cart-item:last-child { border-bottom: none; }
+        
+        .cart-footer {
+            padding: 25px;
+            border-top: 2px solid #374151;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), transparent);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            color: #9ca3af;
+        }
+        
+        .empty-cart i {
+            animation: emptyCartFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes emptyCartFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .quantity-btn:hover {
+            background: linear-gradient(135deg, #991b1b, #7f1d1d);
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.5);
+        }
+        
+        .remove-btn {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-btn:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.5);
+        }
+        
+        .chat-integration {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .form-success {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideInRight 0.5s ease, fadeOut 0.5s ease 3.5s forwards;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(400px); }
+        }
+        
+        .floating-action {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.5);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            animation: floatingPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatingPulse {
+            0%, 100% {
+                box-shadow: 0 15px 35px rgba(220, 38, 38, 0.5);
+                transform: translateY(0);
+            }
+            50% {
+                box-shadow: 0 20px 45px rgba(220, 38, 38, 0.7);
+                transform: translateY(-5px);
+            }
+        }
+        
+        .floating-action:hover {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.8);
+        }
+    
+        #about {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .about-background {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        
+        .about-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.08;
+            animation: zoomSlow 20s ease-in-out infinite;
+        }
+        
+        @keyframes zoomSlow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .about-background::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), transparent);
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #dc2626, #ef4444, #f87171);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
+        }
+        
+        @keyframes titleGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+        
+        .feature-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-icon {
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+        
+        .image-container {
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .main-image {
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(220, 38, 38, 0.4);
+            transition: all 0.5s ease;
+            animation: imageFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes imageFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .main-image:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 30px 80px rgba(220, 38, 38, 0.6);
+        }
+        
+        .image-decoration {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border-radius: 25px;
+            z-index: -1;
+            animation: decorationPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes decorationPulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #991b1b, #7f1d1d);
+        }
+    
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .floating-action {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .image-decoration {
+                width: 150px;
+                height: 150px;
+                bottom: -15px;
+                right: -15px;
+            }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle" style="width: 50px; height: 50px; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 30px; height: 30px; left: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="width: 40px; height: 40px; left: 50%; animation-delay: 4s;"></div>
+        <div class="particle" style="width: 35px; height: 35px; left: 70%; animation-delay: 6s;"></div>
+        <div class="particle" style="width: 45px; height: 45px; left: 90%; animation-delay: 8s;"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-zinc-900/95 backdrop-blur-lg border-b-2 border-red-600 top-0 left-0 right-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                   <a href="index.html" class="flex items-center space-x-3">
+                       <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-red-600/50 overflow-hidden logo-container">
+                           <img src="image/foto1.jpeg" alt="Logo Kopi" class="w-full h-full object-cover">
+                       </div>
+                       <div class="flex flex-col items-center">
+                           <span class="font-pacifico text-2xl text-red-600 drop-shadow-lg leading-none">KOPI</span>
+                           <span class="font-pacifico text-2xl text-red-600 drop-shadow-lg leading-none">CUSS</span>
+                       </div>
+                   </a>
+                </div>
+                
+                <ul class="hidden md:flex space-x-8 items-center">
+                    <li><a href="index.html" class="hover:text-red-600 transition font-semibold">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-red-600 transition font-semibold">Menu</a></li>
+                    <li><a href="about.html" class="hover:text-red-600 transition font-semibold text-red-600">Tentang</a></li>
+                    <li><a href="contact.html" class="hover:text-red-600 transition font-semibold">Kontak</a></li>
+                    <li>
+                        <a href="#" class="cart-icon hover:text-red-600 transition font-semibold relative" id="cart-button">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="md:hidden flex items-center space-x-4">
+                    <a href="#" class="cart-icon relative" id="mobile-cart-button">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button id="hamburger-btn" class="text-white hamburger">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="menu.html">Menu <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="about.html" class="text-red-600">Tentang <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="contact.html">Kontak <i class="fas fa-chevron-right"></i></a></li>
+                <li>
+                    <a href="#" class="cart-icon relative" id="mobile-menu-cart-button">
+                        Keranjang <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2 class="text-xl font-bold text-red-600">Keranjang Pesanan</h2>
+                <button id="close-cart" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+            </div>
+            <div class="cart-footer">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-semibold">Total:</span>
+                    <span class="font-bold text-red-600 text-2xl" id="cart-total">Rp 0</span>
+                </div>
+                <div class="chat-integration">
+                    <p class="text-sm text-gray-300 mb-3">Kirim pesanan melalui WhatsApp:</p>
+                    <div class="flex gap-3 justify-center">
+                        <a href="#" id="whatsapp-order" class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-full transition flex items-center gap-2 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <i class="fab fa-whatsapp text-xl"></i> Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-20 overflow-hidden min-h-screen flex items-center">
+        <div class="about-background">
+            <img src="image/foto1.jpeg" alt="Coffee Shop">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-pacifico text-4xl md:text-6xl section-title mb-8">Tentang KOPI CUSS</h2>
+                    
+                    <p class="text-xl text-gray-300 mb-6 leading-relaxed fade-in-up">KOPI CUSS ngopi santai dimana aja.</p>
+                    
+                    <p class="text-xl text-gray-300 mb-6 leading-relaxed fade-in-up font-semibold text-red-400">Take Your Coffe and Cuss Your Away.</p>
+                    
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed fade-in-up">Fresh brew, good vibes, and pure dedication. Kopi cuss hadir untuk mencerahkan hari anda</p>
+                    
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed fade-in-up">Teman setia harimu siap nemenin fokus dan istirahatmu. Nggak perlu jauh-jauh, kopi cuss udah standby di titik strategis kampus dan kantormu.</p>
+                    
+                    <p class="text-lg text-gray-300 mb-10 leading-relaxed fade-in-up">Kami menghadirkan berbagai pilihan menu kopi dan non-kopi yang sempurna untuk menemani setiap momen Anda, dari yang sederhana hingga acara spesial.</p>
+
+                    <div class="space-y-5 mb-10">
+                       <div class="flex items-start space-x-4 glass-effect rounded-2xl p-5 feature-card">
+                            <div class="w-14 h-14 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center flex-shrink-0 text-2xl feature-icon shadow-lg">🥤</div>
+                         <div>
+                         <h4 class="font-bold text-xl text-red-500 mb-1">Cup Spesial</h4>
+                          <p class="text-gray-300">Minuman disajikan dalam cup eksklusif KOPI CUSS</p>
+                        </div>
+                </div>
+                        <div class="flex items-start space-x-4 glass-effect rounded-2xl p-5 feature-card">
+                            <div class="w-14 h-14 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center flex-shrink-0 text-2xl feature-icon shadow-lg">⚡</div>
+                            <div>
+                                <h4 class="font-bold text-xl text-red-500 mb-1">Pelayanan Cepat</h4>
+                                <p class="text-gray-300">Siap melayani pesanan Anda dengan cepat</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 glass-effect rounded-2xl p-5 feature-card">
+                            <div class="w-14 h-14 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center flex-shrink-0 text-2xl feature-icon shadow-lg">💰</div>
+                            <div>
+                                <h4 class="font-bold text-xl text-red-500 mb-1">Harga Terjangkau</h4>
+                                <p class="text-gray-300">Kualitas premium dengan harga bersahabat</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="menu.html" class="color-change-btn text-white font-bold py-4 px-8 rounded-full inline-block text-lg shadow-2xl">
+                            Lihat Menu Lengkap <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+            
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="image/menu.jpeg" alt="Coffee Making" class="main-image w-full">
+                    <div class="image-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6282192347565" target="_blank" class="floating-action" id="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartModal = document.getElementById('cart-modal');
+            
+            const cartButton = document.getElementById('cart-button');
+            const mobileCartButton = document.getElementById('mobile-cart-button');
+            const mobileMenuCartButton = document.getElementById('mobile-menu-cart-button');
+            const closeCart = document.getElementById('close-cart');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const whatsappOrder = document.getElementById('whatsapp-order');
+
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-about');
+            
+            function formatCartCount(count) {
+                if (count >= 1000) {
+                    return (count / 1000).toFixed(1) + 'k';
+                }
+                return count.toString();
+            }
+
+            function updateCartCount() {
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                const formattedCount = formatCartCount(totalItems);
+                
+                document.querySelectorAll('.cart-count').forEach(element => {
+                    element.textContent = formattedCount;
+                    element.style.animation = 'none';
+                    setTimeout(() => element.style.animation = 'popIn 0.3s ease', 10);
+                });
+            }
+
+            function updateCartDisplay() {
+                cartItems.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<div class="empty-cart"><i class="fas fa-shopping-cart text-4xl mb-4 text-gray-500"></i><p>Keranjang Anda kosong</p></div>';
+                    cartTotal.textContent = 'Rp 0';
+                    return;
+                }
+                
+                let total = 0;
+                
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div>
+                            <div class="font-semibold">${item.name}</div>
+                            <div class="text-sm text-gray-400">${item.price}K</div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn decrease" data-index="${index}">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn increase" data-index="${index}">+</button>
+                            </div>
+                            <div class="font-semibold">${itemTotal}K</div>
+                            <button class="remove-btn" data-index="${index}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+                
+                cartTotal.textContent = `Rp ${total}K`;
+                
+                document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = e.target.dataset.index;
+                        if (cart[index].quantity > 1) {
+                            cart[index].quantity--;
+                        } else {
+                            cart.splice(index, 1);
+                        }
+                        saveCart();
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.increase').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = e.target.dataset.index;
+                        cart[index].quantity++;
+                        saveCart();
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = e.target.closest('.remove-btn').dataset.index;
+                        cart.splice(index, 1);
+                        saveCart();
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+            }
+
+            function saveCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            function generateOrderMessage() {
+                if (cart.length === 0) return '';
+                
+                let message = "Halo KOPI CUSS, saya ingin memesan:\n\n";
+                let total = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    message += `• ${item.name} x${item.quantity} = ${itemTotal}K\n`;
+                });
+                
+                message += `\nTotal: ${total}K\n\n`;
+                message += "Mohon konfirmasi ketersediaan dan informasi pengiriman. Terima kasih!";
+                
+                return encodeURIComponent(message);
+            }
+
+            function openCart() {
+                cartModal.classList.add('active');
+                updateCartDisplay();
+            }
+
+            function closeCartModal() {
+                cartModal.classList.remove('active');
+            }
+
+            // Event listeners untuk tombol keranjang
+            cartButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCart();
+            });
+
+            mobileCartButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCart();
+            });
+
+            mobileMenuCartButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCart();
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburgerBtn = document.getElementById('hamburger-btn');
+                mobileMenu.classList.remove('active');
+                hamburgerBtn.classList.remove('active');
+            });
+
+            closeCart.addEventListener('click', closeCartModal);
+
+            cartModal.addEventListener('click', (e) => {
+                if (e.target === cartModal) {
+                    closeCartModal();
+                }
+            });
+
+            whatsappOrder.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (cart.length === 0) {
+                    alert('Keranjang Anda kosong. Silakan tambahkan item terlebih dahulu.');
+                    return;
+                }
+                
+                const message = generateOrderMessage();
+                const phoneNumber = '6282192347565';
+                const url = `https://wa.me/${phoneNumber}?text=${message}`;
+                window.open(url, '_blank');
+            });
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const name = e.target.getAttribute('data-name');
+                    const price = parseInt(e.target.getAttribute('data-price'));
+                    
+                    const existingItemIndex = cart.findIndex(item => item.name === name);
+                    
+                    if (existingItemIndex !== -1) {
+                        cart[existingItemIndex].quantity += 1;
+                    } else {
+                        cart.push({ name, price, quantity: 1 });
+                    }
+                    
+                    saveCart();
+                    updateCartCount();
+                    
+                    const toast = document.createElement('div');
+                    toast.className = 'form-success';
+                    toast.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <span>${name} ditambahkan ke keranjang!</span>
+                    `;
+                    document.body.appendChild(toast);
+                    
+                    setTimeout(() => {
+                        if (document.body.contains(toast)) {
+                            document.body.removeChild(toast);
+                        }
+                    }, 3000);
+                });
+            });
+
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (hamburgerBtn && mobileMenu) {
+                hamburgerBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                    hamburgerBtn.classList.toggle('active');
+                });
+
+                document.querySelectorAll('#mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        hamburgerBtn.classList.remove('active');
+                    });
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                        hamburgerBtn.classList.remove('active');
+                    }
+                });
+            }
+
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
