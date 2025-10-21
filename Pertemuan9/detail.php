@@ -720,14 +720,12 @@ $is_updated = $note['updated_at'] != $note['created_at'];
     let originalContent = '<?php echo addslashes($note['content']); ?>';
     let autoSaveTimer = null;
     const AUTO_SAVE_DELAY = 5000;
-    let countdownInterval = null;
     let hasChanges = false;
 
     function enableEdit(field) {
         if (!isEditing) {
             isEditing = true;
             updateUI();
-            showAutoSaveCountdown();
         }
 
         if (field === 'title' || field === 'all') {
@@ -803,44 +801,10 @@ $is_updated = $note['updated_at'] != $note['created_at'];
     function saveChanges() {
         if (!isEditing) return;
 
-        const form = document.getElementById('noteForm');
-        const formData = new FormData(form);
-        
         showAutoSaveStatus('Menyimpan...');
         
-        fetch('', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                showAutoSaveStatus('Tersimpan!');
-                updateTimestamp();
-                
-                // Update nilai original
-                originalTitle = document.getElementById('titleInput').value;
-                originalContent = document.getElementById('contentInput').value;
-                
-                hasChanges = false;
-                
-                // Keluar dari mode edit setelah berhasil disimpan
-                setTimeout(() => {
-                    isEditing = false;
-                    updateUI();
-                    hideEditFields();
-                    clearAutoSave();
-                    showAutoSaveStatus('');
-                    // Refresh halaman untuk memastikan data terbaru
-                    location.reload();
-                }, 1000);
-            } else {
-                showAutoSaveStatus('Gagal menyimpan');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showAutoSaveStatus('Gagal menyimpan');
-        });
+        // Submit form secara langsung
+        document.getElementById('noteForm').submit();
     }
 
     function setupAutoSave() {
@@ -860,30 +824,6 @@ $is_updated = $note['updated_at'] != $note['created_at'];
             clearTimeout(autoSaveTimer);
             autoSaveTimer = null;
         }
-        if (countdownInterval) {
-            clearInterval(countdownInterval);
-            countdownInterval = null;
-        }
-    }
-
-    function showAutoSaveCountdown() {
-        const statusElement = document.getElementById('autoSaveStatus');
-        let countdown = AUTO_SAVE_DELAY / 1000;
-        
-        countdownInterval = setInterval(() => {
-            if (!isEditing) {
-                clearInterval(countdownInterval);
-                return;
-            }
-            
-            countdown--;
-            statusElement.textContent = `Auto-save dalam ${countdown} detik...`;
-            statusElement.style.color = 'var(--primary-color)';
-            
-            if (countdown <= 0) {
-                clearInterval(countdownInterval);
-            }
-        }, 1000);
     }
 
     function showAutoSaveStatus(message) {
@@ -894,8 +834,6 @@ $is_updated = $note['updated_at'] != $note['created_at'];
             statusElement.style.color = '#10b981';
         } else if (message === 'Menyimpan...') {
             statusElement.style.color = 'var(--primary-color)';
-        } else if (message === 'Gagal menyimpan') {
-            statusElement.style.color = '#ef4444';
         } else {
             statusElement.style.color = 'var(--text-muted)';
         }
