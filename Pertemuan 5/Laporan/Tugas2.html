@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tipe Data dalam Array JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%;
+            max-width: 700px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #764ba2;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        h2 {
+            color: #667eea;
+            border-left: 4px solid #667eea;
+            padding-left: 10px;
+        }
+        
+        .array-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .array-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .array-content {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            line-height: 1.8;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .array-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .array-type {
+            background-color: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            color: #e83e8c;
+            font-weight: bold;
+        }
+        
+        .number {
+            color: #20c997;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        
+        .code-explanation {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tipe Data dalam Array JavaScript</h1>
+        
+        <div class="array-card">
+            <div class="array-header">
+                <h2>Array Angka (Number)</h2>
+            </div>
+            
+            <div class="array-content">
+                <script>
+                    var angka = [10, 20, 30, 40, 50];
+                    document.write(
+                        "Isi array: [<span class='number'>" + angka.join("</span>, <span class='number'>") + "</span>]<br>" +
+                        "Jumlah elemen: <span class='highlight'>" + angka.length + "</span><br>" +
+                        "Elemen pertama: <span class='number'>" + angka[0] + "</span><br>" +
+                        "Elemen terakhir: <span class='number'>" + angka[angka.length - 1] + "</span>"
+                    );
+                </script>
+            </div>
+    </div>
+</body>
+</html>

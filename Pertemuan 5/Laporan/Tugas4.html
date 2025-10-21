@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Perhitungan Bangun Ruang</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, white 0%, white 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .bangun-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .bangun {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .bangun:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bangun h2 {
+            color: #2E7D32;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        
+        .satuan-group {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+        
+        .satuan-group label {
+            margin-right: 10px;
+            font-weight: normal;
+        }
+        
+        .satuan-group input {
+            margin-right: 5px;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: #388E3C;
+        }
+        
+        .hasil {
+            margin-top: 15px;
+            padding: 15px;
+            background: #E8F5E9;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .hasil p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+        
+        .rumus {
+            margin-top: 15px;
+            padding: 10px;
+            background: #F1F8E9;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .bangun {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Perhitungan Bangun Ruang</h1>
+            <p>Hitung volume dan luas permukaan dengan mudah</p>
+        </header>
+        
+        <div class="bangun-container">
+            <div class="bangun">
+                <h2>1. Kubus</h2>
+                <div class="input-group">
+                    <label for="sisiKubus">Panjang sisi:</label>
+                    <input type="number" id="sisiKubus" placeholder="Masukkan panjang sisi" min="0" step="any">
+                    <div class="satuan-group">
+                        <label><input type="radio" name="satuanKubus" value="cm" checked> cm</label>
+                        <label><input type="radio" name="satuanKubus" value="m"> m</label>
+                    </div>
+                </div>
+                <button onclick="hitungKubus()">Hitung</button>
+                <div class="rumus">
+                    <strong>Rumus:</strong><br>
+                    Volume = s³<br>
+                    Luas = 6 × s²
+                </div>
+                <div class="hasil" id="hasilKubus"></div>
+            </div>
+            
+            <div class="bangun">
+                <h2>2. Tabung</h2>
+                <div class="input-group">
+                    <label for="jariTabung">Jari-jari:</label>
+                    <input type="number" id="jariTabung" placeholder="Masukkan jari-jari" min="0" step="any">
+                    <div class="satuan-group">
+                        <label><input type="radio" name="satuanTabung" value="cm" checked> cm</label>
+                        <label><input type="radio" name="satuanTabung" value="m"> m</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="tinggiTabung">Tinggi:</label>
+                    <input type="number" id="tinggiTabung" placeholder="Masukkan tinggi" min="0" step="any">
+                    <div class="satuan-group">
+                        <label><input type="radio" name="satuanTabungTinggi" value="cm" checked> cm</label>
+                        <label><input type="radio" name="satuanTabungTinggi" value="m"> m</label>
+                    </div>
+                </div>
+                <button onclick="hitungTabung()">Hitung</button>
+                <div class="rumus">
+                    <strong>Rumus:</strong><br>
+                    Volume = π × r² × t<br>
+                    Luas = 2πr² + 2πrt
+                </div>
+                <div class="hasil" id="hasilTabung"></div>
+            </div>
+            
+            <div class="bangun">
+                <h2>3. Bola</h2>
+                <div class="input-group">
+                    <label for="jariBola">Jari-jari:</label>
+                    <input type="number" id="jariBola" placeholder="Masukkan jari-jari" min="0" step="any">
+                    <div class="satuan-group">
+                        <label><input type="radio" name="satuanBola" value="cm" checked> cm</label>
+                        <label><input type="radio" name="satuanBola" value="m"> m</label>
+                    </div>
+                </div>
+                <button onclick="hitungBola()">Hitung</button>
+                <div class="rumus">
+                    <strong>Rumus:</strong><br>
+                    Volume = 4/3 × π × r³<br>
+                    Luas = 4 × π × r²
+                </div>
+                <div class="hasil" id="hasilBola"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getSelectedSatuan(name) {
+            const selected = document.querySelector(`input[name="${name}"]:checked`);
+            return selected ? selected.value : 'cm';
+        }
+        
+        function hitungKubus() {
+            let sisi = document.getElementById("sisiKubus").value;
+            const satuan = getSelectedSatuan('satuanKubus');
+ 
+            if (sisi === "" || sisi <= 0) {
+                document.getElementById("hasilKubus").innerHTML = 
+                    "<p style='color: red;'>Masukkan nilai sisi yang valid!</p>";
+                return;
+            }
+            
+            sisi = parseFloat(sisi);
+            
+            let volume = Math.pow(sisi, 3);
+            let luasPermukaan = 6 * Math.pow(sisi, 2);
+            
+            let satuanVolume = satuan === 'cm' ? 'cm³' : 'm³';
+            let satuanLuas = satuan === 'cm' ? 'cm²' : 'm²';
+        
+            document.getElementById("hasilKubus").innerHTML = 
+                `<p><strong>Volume Kubus:</strong> ${volume.toFixed(2)} ${satuanVolume}</p>` +
+                `<p><strong>Luas Permukaan Kubus:</strong> ${luasPermukaan.toFixed(2)} ${satuanLuas}</p>`;
+        }
+        
+        function hitungTabung() {
+            let jariJari = document.getElementById("jariTabung").value;
+            let tinggi = document.getElementById("tinggiTabung").value;
+            const satuan = getSelectedSatuan('satuanTabung');
+            const satuanTinggi = getSelectedSatuan('satuanTabungTinggi');
+
+            // Pastikan satuan jari-jari dan tinggi sama
+            if (satuan !== satuanTinggi) {
+                document.getElementById("hasilTabung").innerHTML = 
+                    "<p style='color: red;'>Satuan jari-jari dan tinggi harus sama!</p>";
+                return;
+            }
+
+            if (jariJari === "" || tinggi === "" || jariJari <= 0 || tinggi <= 0) {
+                document.getElementById("hasilTabung").innerHTML = 
+                    "<p style='color: red;'>Masukkan nilai jari-jari dan tinggi yang valid!</p>";
+                return;
+            }
+
+            jariJari = parseFloat(jariJari);
+            tinggi = parseFloat(tinggi);
+
+            let volume = Math.PI * Math.pow(jariJari, 2) * tinggi;
+            let luasPermukaan = (2 * Math.PI * Math.pow(jariJari, 2)) + (2 * Math.PI * jariJari * tinggi);
+            
+            let satuanVolume = satuan === 'cm' ? 'cm³' : 'm³';
+            let satuanLuas = satuan === 'cm' ? 'cm²' : 'm²';
+            
+            document.getElementById("hasilTabung").innerHTML = 
+                `<p><strong>Volume Tabung:</strong> ${volume.toFixed(2)} ${satuanVolume}</p>` +
+                `<p><strong>Luas Permukaan Tabung:</strong> ${luasPermukaan.toFixed(2)} ${satuanLuas}</p>`;
+        }
+ 
+        function hitungBola() {
+            let jariJari = document.getElementById("jariBola").value;
+            const satuan = getSelectedSatuan('satuanBola');
+
+            if (jariJari === "" || jariJari <= 0) {
+                document.getElementById("hasilBola").innerHTML = 
+                    "<p style='color: red;'>Masukkan nilai jari-jari yang valid!</p>";
+                return;
+            }
+            
+            jariJari = parseFloat(jariJari);
+
+            let volume = (4/3) * Math.PI * Math.pow(jariJari, 3);
+            let luasPermukaan = 4 * Math.PI * Math.pow(jariJari, 2);
+            
+            let satuanVolume = satuan === 'cm' ? 'cm³' : 'm³';
+            let satuanLuas = satuan === 'cm' ? 'cm²' : 'm²';
+            
+            document.getElementById("hasilBola").innerHTML = 
+                `<p><strong>Volume Bola:</strong> ${volume.toFixed(2)} ${satuanVolume}</p>` +
+                `<p><strong>Luas Permukaan Bola:</strong> ${luasPermukaan.toFixed(2)} ${satuanLuas}</p>`;
+        }
+    </script>
+</body>
+</html>

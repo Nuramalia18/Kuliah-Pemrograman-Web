@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Foto - Nur Amalia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #026471ff 0%, #bbdefb 100%);
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, #007c8a 0%, #00acc1 100%);
+      padding: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .navbar li {
+      margin: 0;
+    }
+    
+    .navbar a {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      padding: 18px 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .navbar a i {
+      margin-right: 8px;
+    }
+    
+    .navbar a:hover, .navbar a.active {
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom: 3px solid white;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 1001;
+    }
+    
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-header {
+      background: linear-gradient(135deg, #00acc1 0%, #00838f 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .gallery-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .gallery-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .back-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .back-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .back-button i {
+      margin-right: 8px;
+    }
+
+    .gallery-container {
+      padding: 20px;
+      flex: 1;
+    }
+    
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    
+    .filter-btn {
+      padding: 10px 20px;
+      background: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .filter-btn.active, .filter-btn:hover {
+      background: #00acc1;
+      color: white;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      height: 280px;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 131, 143, 0.9);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    
+    .gallery-caption h3 {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+    
+    .gallery-caption p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+ 
+    .album-indicator {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .album-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .album-content {
+      position: relative;
+      margin: 60px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .album-title {
+      color: white;
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      width: 100%;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 10px;
+    }
+    
+    .album-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .album-img:hover {
+      transform: scale(1.05);
+    }
+    
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .close:hover {
+      color: #00acc1;
+    }
+  
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+    
+    .modal-content {
+      position: relative;
+      margin: 60px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .modal-img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modal-caption {
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 15px;
+      background: rgba(0, 131, 143, 0.8);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    .modal-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .nav-btn {
+      background: rgba(0, 131, 143, 0.8);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-btn:hover {
+      background: #00acc1;
+      transform: translateY(-3px);
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 25px;
+      background: #007c8a;
+      color: white;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+    
+    .footer p {
+      margin-bottom: 15px;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: nowrap;
+      margin-top: 20px;
+    }
+
+    .social-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .social-btn:hover::before {
+      transform: translateY(0);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-btn.instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    
+    .social-btn.whatsapp {
+      background: #25D366;
+    }
+    
+    .social-btn.linkedin {
+      background: #0077B5;
+    }
+    
+    .social-btn.github {
+      background: #333;
+    }
+
+    .social-btn::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease, bottom 0.3s ease;
+      pointer-events: none;
+    }
+
+    .social-btn:hover::after {
+      opacity: 1;
+      bottom: -35px;
+    }
+  
+    @media (max-width: 992px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      
+      .album-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 10px;
+      }
+      
+      .navbar a {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .menu-toggle {
+        display: flex;
+      }
+      
+      .gallery-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .gallery-header p {
+        font-size: 1.1rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      
+      .gallery-item {
+        height: 220px;
+      }
+      
+      .album-content {
+        margin: 40px auto;
+        width: 95%;
+      }
+      
+      .social-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .album-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .navbar a {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+      }
+      
+      .navbar a i {
+        margin-right: 5px;
+      }
+      
+      .gallery-filters {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .filter-btn {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="Biografi.html"><i class="fas fa-arrow-left"></i> Kembali ke Biodata</a></li>
+      <li><a href="#" class="active"><i class="fas fa-images"></i> Galeri Foto</a></li>
+    </ul>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="gallery-header">
+    <h1>Galeri Foto Nur Amalia</h1>
+    <p>Kumpulan momen berharga dan kenangan indah yang terekam dalam lensa kamera</p>
+    <a href="Biografi.html" class="back-button"><i class="fas fa-home"></i> Kembali ke Halaman Utama</a>
+  </div>
+
+  <div class="gallery-container">
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="pribadi">Pribadi</button>
+      <button class="filter-btn" data-filter="kampus">Kampus</button>
+      <button class="filter-btn" data-filter="organisasi">Organisasi</button>
+      <button class="filter-btn" data-filter="sekolah">Sekolah</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" data-category="pribadi" data-album="pribadi">
+        <img src="self/3.jpeg" alt="Album Foto Pribadi" class="gallery-img">
+        <div class="album-indicator">
+          <i class="fas fa-images"></i> <span>14 foto</span>
+        </div>
+        <div class="gallery-caption">
+          <h3>Album Foto Pribadi</h3>
+          <p>Kumpulan foto pribadi Nur Amalia</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="kampus" data-album="kampus">
+        <img src="kampus/7.jpg" alt="Album Kampus" class="gallery-img">
+        <div class="album-indicator">
+          <i class="fas fa-images"></i> <span>9 foto</span>
+        </div>
+        <div class="gallery-caption">
+          <h3>Album Kampus</h3>
+          <p>Kumpulan foto saat di kampus</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="organisasi" data-album="pramuka">
+        <img src="images/13.jpg" alt="Album Kegiatan Pramuka" class="gallery-img">
+        <div class="album-indicator">
+          <i class="fas fa-images"></i> <span>13 foto</span>
+        </div>
+        <div class="gallery-caption">
+          <h3>Album Kegiatan Pramuka</h3>
+          <p>Kumpulan foto kegiatan pramuka</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="organisasi" data-album="tari">
+        <img src="seni/5.jpg" alt="Album Kegiatan Seni Tari" class="gallery-img">
+        <div class="album-indicator">
+          <i class="fas fa-images"></i> <span>20 foto</span>
+        </div>
+        <div class="gallery-caption">
+          <h3>Album Kegiatan Seni Tari</h3>
+          <p>Kumpulan foto kegiatan seni tari</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="sekolah" data-album="sekolah">
+        <img src="sekolah/13.jpg" alt="Album Sekolah" class="gallery-img">
+        <div class="album-indicator">
+          <i class="fas fa-images"></i> <span>21 foto</span>
+        </div>
+        <div class="gallery-caption">
+          <h3>Album Foto saat Sekolah</h3>
+          <p>Kumpulan foto saat sekolah</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="albumModal" class="album-modal">
+    <span class="close">&times;</span>
+    <div class="album-content">
+      <div class="album-title">
+        <h2 id="albumTitle"></h2>
+      </div>
+      <div class="album-grid" id="albumGrid">
+      </div>
+    </div>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" class="modal-img" src="" alt="">
+      <div class="modal-caption">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+      </div>
+      <div class="modal-nav">
+        <button id="prevBtn" class="nav-btn"><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+        <button id="nextBtn" class="nav-btn">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2025 Galeri Foto Nur Amalia. All Rights Reserved.</p>
+
+    <div class="footer-social">
+      <a href="https://www.instagram.com/nrmlia_18?igsh=bXJidjN2OGl1eTl3" target="_blank" class="social-btn instagram" data-tooltip="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/qr/W6NUQGSTSKW6N1" target="_blank" class="social-btn whatsapp" data-tooltip="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/nur-amalia-563b2437a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-btn linkedin" data-tooltip="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/Nuramalia18/Kuliah-Pemrograman-Web/tree/master" target="_blank" class="social-btn github" data-tooltip="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const albums = {
+      pribadi: {
+        title: "Foto Pribadi",
+        description: "Kumpulan foto pribadi Nur Amalia",
+        photos: [
+          { src: "self/1.jpeg", alt: "Foto Pribadi 1" },
+          { src: "self/2.jpeg", alt: "Foto Pribadi 2" },
+          { src: "self/3.jpeg", alt: "Foto Pribadi 3" },
+          { src: "self/4.jpeg", alt: "Foto Pribadi 4" },
+          { src: "self/5.jpeg", alt: "Foto Pribadi 5" },
+          { src: "self/6.webp", alt: "Foto Pribadi 6" },
+          { src: "self/7.jpg", alt: "Foto Pribadi 7" },
+          { src: "self/8.jpg", alt: "Foto Pribadi 8" },
+          { src: "self/9.jpg", alt: "Foto Pribadi 9" },
+          { src: "self/10.jpg", alt: "Foto Pribadi 10" },
+          { src: "self/11.jpg", alt: "Foto Pribadi 11" },
+          { src: "self/12.jpg", alt: "Foto Pribadi 12" },
+          { src: "self/13.jpg", alt: "Foto Pribadi 13" },
+          { src: "self/14.jpg", alt: "Foto Pribadi 14" }
+        ]
+      },
+      kampus: {
+        title: "Kegiatan Kampus",
+        description: "Kumpulan foto saat di kampus",
+        photos: [
+          { src: "kampus/1.jpeg", alt: "Kegiatan Kampus 1" },
+          { src: "kampus/2.jpeg", alt: "Kegiatan Kampus 2" },
+          { src: "kampus/3.jpg", alt: "Kegiatan Kampus 3" },
+          { src: "kampus/4.jpg", alt: "Kegiatan Kampus 4" },
+          { src: "kampus/5.jpeg", alt: "Kegiatan Kampus 5" },
+          { src: "kampus/6.jpeg", alt: "Kegiatan Kampus 6" },
+          { src: "kampus/7.jpg", alt: "Kegiatan Kampus 7" },
+          { src: "kampus/8.jpeg", alt: "Kegiatan Kampus 8" },
+          { src: "kampus/9.jpeg", alt: "Kegiatan Kampus 9" }
+        ]
+      },
+      pramuka: {
+        title: "Kegiatan Pramuka",
+        description: "Kumpulan foto kegiatan pramuka di SMK Mannanti",
+        photos: [
+          { src: "images/1.jpg", alt: "Kegiatan Pramuka 1" },
+          { src: "images/2.jpg", alt: "Kegiatan Pramuka 2" },
+          { src: "images/3.jpg", alt: "Kegiatan Pramuka 3" },
+          { src: "images/4.jpg", alt: "Kegiatan Pramuka 4" },
+          { src: "images/5.jpg", alt: "Kegiatan Pramuka 5" },
+          { src: "images/6.jpg", alt: "Kegiatan Pramuka 6" },
+          { src: "images/7.jpg", alt: "Kegiatan Pramuka 7" },
+          { src: "images/8.jpg", alt: "Kegiatan Pramuka 8" },
+          { src: "images/9.jpg", alt: "Kegiatan Pramuka 9" },
+          { src: "images/10.jpg", alt: "Kegiatan Pramuka 10" },
+          { src: "images/11.jpg", alt: "Kegiatan Pramuka 11" },
+          { src: "images/12.jpg", alt: "Kegiatan Pramuka 12" },
+          { src: "images/13.jpg", alt: "Kegiatan Pramuka 13" }
+        ]
+      },
+      tari: {
+        title: "Kegiatan Seni Tari",
+        description: "Kumpulan foto kegiatan seni tari",
+        photos: [
+          { src: "seni/1.jpg", alt: "Kegiatan Tari 1" },
+          { src: "seni/2.jpg", alt: "Kegiatan Tari 2" },
+          { src: "seni/3.jpg", alt: "Kegiatan Tari 3" },
+          { src: "seni/4.jpg", alt: "Kegiatan Tari 4" },
+          { src: "seni/5.jpg", alt: "Kegiatan Tari 5" },
+          { src: "seni/6.jpg", alt: "Kegiatan Tari 6" },
+          { src: "seni/7.jpg", alt: "Kegiatan Tari 7" },
+          { src: "seni/8.jpg", alt: "Kegiatan Tari 8" },
+          { src: "seni/9.jpg", alt: "Kegiatan Tari 9" },
+          { src: "seni/10.jpg", alt: "Kegiatan Tari 10" },
+          { src: "seni/11.jpg", alt: "Kegiatan Tari 11" },
+          { src: "seni/12.jpg", alt: "Kegiatan Tari 12" },
+          { src: "seni/13.jpg", alt: "Kegiatan Tari 13" },
+          { src: "seni/14.jpg", alt: "Kegiatan Tari 14" },
+          { src: "seni/15.jpg", alt: "Kegiatan Tari 15" },
+          { src: "seni/16.jpg", alt: "Kegiatan Tari 16" },
+          { src: "seni/17.jpg", alt: "Kegiatan Tari 17" },
+          { src: "seni/18.jpg", alt: "Kegiatan Tari 18" },
+          { src: "seni/19.jpg", alt: "Kegiatan Tari 19" },
+          { src: "seni/20.jpg", alt: "Kegiatan Tari 20" }
+        ]
+      },
+      sekolah: {
+        title: "Foto saat Sekolah",
+        description: "Kumpulan foto bersama teman-teman sekolah",
+        photos: [
+          { src: "sekolah/1.jpg", alt: "Foto Sekolah 1" },
+          { src: "sekolah/2.jpg", alt: "Foto Sekolah 2" },
+          { src: "sekolah/3.jpg", alt: "Foto Sekolah 3" },
+          { src: "sekolah/4.jpg", alt: "Foto Sekolah 4" },
+          { src: "sekolah/5.jpg", alt: "Foto Sekolah 5" },
+          { src: "sekolah/6.jpg", alt: "Foto Sekolah 6" },
+          { src: "sekolah/7.jpg", alt: "Foto Sekolah 7" },
+          { src: "sekolah/8.jpg", alt: "Foto Sekolah 8" },
+          { src: "sekolah/9.jpg", alt: "Foto Sekolah 9" },
+          { src: "sekolah/10.jpg", alt: "Foto Sekolah 10" },
+          { src: "sekolah/11.jpg", alt: "Foto Sekolah 11" },
+          { src: "sekolah/12.jpg", alt: "Foto Sekolah 12" },
+          { src: "sekolah/13.jpg", alt: "Foto Sekolah 13" },
+          { src: "sekolah/14.jpg", alt: "Foto Sekolah 14" },
+          { src: "sekolah/15.jpg", alt: "Foto Sekolah 15" },
+          { src: "sekolah/16.jpg", alt: "Foto Sekolah 16" },
+          { src: "sekolah/17.jpg", alt: "Foto Sekolah 17" },
+          { src: "sekolah/18.jpg", alt: "Foto Sekolah 18" },
+          { src: "sekolah/19.jpg", alt: "Foto Sekolah 19" },
+          { src: "sekolah/20.jpg", alt: "Foto Sekolah 20" },
+          { src: "sekolah/21.jpg", alt: "Foto Sekolah 21" }
+        ]
+      }
+    };
+
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+      
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+    
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    function openAlbum(albumId) {
+      const album = albums[albumId];
+      if (!album) return;
+      
+      const albumModal = document.getElementById('albumModal');
+      const albumTitle = document.getElementById('albumTitle');
+      const albumGrid = document.getElementById('albumGrid');
+    
+      albumTitle.textContent = album.title;
+  
+      albumGrid.innerHTML = '';
+   
+      album.photos.forEach(photo => {
+        const imgElement = document.createElement('img');
+        imgElement.src = photo.src;
+        imgElement.alt = photo.alt;
+        imgElement.classList.add('album-img');
+        imgElement.addEventListener('click', () => {
+          openLightbox(album.photos, album.photos.indexOf(photo));
+        });
+        albumGrid.appendChild(imgElement);
+      });
+
+      albumModal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAlbum() {
+      document.getElementById('albumModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    document.querySelectorAll('[data-album]').forEach(item => {
+      item.addEventListener('click', (e) => {
+        const albumId = item.getAttribute('data-album');
+        openAlbum(albumId);
+      });
+    });
+    
+    document.querySelectorAll('.album-modal .close').forEach(closeBtn => {
+      closeBtn.addEventListener('click', closeAlbum);
+    });
+
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const closeBtn = document.querySelector('#imageModal .close');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentIndex = 0;
+    let currentPhotos = [];
+  
+    function openLightbox(photos, index) {
+      currentPhotos = photos;
+      currentIndex = index;
+      
+      const photo = photos[index];
+      modalImg.src = photo.src;
+      modalImg.alt = photo.alt;
+      modalTitle.textContent = photo.alt;
+      modalDescription.textContent = "";
+      
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      closeAlbum(); 
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+ 
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length;
+      const photo = currentPhotos[currentIndex];
+      modalImg.src = photo.src;
+      modalImg.alt = photo.alt;
+      modalTitle.textContent = photo.alt;
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % currentPhotos.length;
+      const photo = currentPhotos[currentIndex];
+      modalImg.src = photo.src;
+      modalImg.alt = photo.alt;
+      modalTitle.textContent = photo.alt;
+    }
+    
+    closeBtn.addEventListener('click', closeModal);
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+  
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+      if (event.target === document.getElementById('albumModal')) {
+        closeAlbum();
+      }
+    });
+    
+    document.addEventListener('keydown', (event) => {
+      if (modal.style.display === 'block') {
+        if (event.key === 'Escape') {
+          closeModal();
+        } else if (event.key === 'ArrowLeft') {
+          showPrev();
+        } else if (event.key === 'ArrowRight') {
+          showNext();
+        }
+      }
+      if (document.getElementById('albumModal').style.display === 'block') {
+        if (event.key === 'Escape') {
+          closeAlbum();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

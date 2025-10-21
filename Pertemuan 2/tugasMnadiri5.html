@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f08080; 
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 10px; 
+            text-align: center;
+            margin: 80px auto;
+            position: relative;
+        }
+        td{
+            padding: 20px 30px;
+            background: #eee;
+        }
+        .colspan {
+            background-color: lightgreen;
+            color: whitesmoke;
+        }
+        .rowspan {
+            background-color: purple;
+            color: yellowgreen;
+        }
+
+        .colspan-text {
+            position: absolute;
+            top: -70px;
+            left: 200px;
+            color: white;
+            font-style: italic ;
+            text-align: center;
+        }
+        .colspan-arrow {
+            position: absolute;
+            top: -10px; 
+            left: 250px;
+            width: 2px;  
+            height: 20px;
+            background: white;
+        }
+        .colspan-arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 10px solid white;       
+    border-left: 7px solid transparent; 
+    border-right: 7px solid transparent;
+        }
+
+        .rowspan-text {
+            position: absolute;
+            top: 120px;
+            left: -220px;
+            color: white;
+            font-style: italic;
+            text-align: right;
+        }
+        .rowspan-arrow {
+            position: absolute;
+            top: 145px; 
+            left: -20px;
+            width: 30px;
+            height: 2px;
+            background: white;
+        }
+        .rowspan-arrow::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 10px solid white;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <div style="position:relative; width:max-content; margin:auto;">
+        <!-- Tabel -->
+        <table>
+            <tr>
+                <td></td>
+                <td colspan="2" class="colspan">colspan = "2"</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="rowspan">rowspan = "2"</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <!-- Keterangan COLSPAN -->
+        <div class="colspan-text">sel ini telah<br>bergabung secara colspan</div>
+        <div class="colspan-arrow"></div>
+
+        <!-- Keterangan ROWSPAN -->
+        <div class="rowspan-text">sel ini telah<br>bergabung secara rowspan</div>
+        <div class="rowspan-arrow"></div>
+    </div>
+</body>
+</html>

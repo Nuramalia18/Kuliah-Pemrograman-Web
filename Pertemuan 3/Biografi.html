@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata - Nur Amalia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #026471 0%, #bbdefb 100%);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(135deg, #00acc1 0%, #00838f 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.content {
+  padding: 40px;
+  flex: 1;
+  background: #f8fdff;
+  background-image: 
+    radial-gradient(#00acc1 0.5px, transparent 0.5px),
+    radial-gradient(#00acc1 0.5px, #f8fdff 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+    
+    .profile-img-container {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+    
+    .decorations {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    
+    .decoration {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.1;
+    }
+    
+    .content {
+      padding: 40px;
+      background: #f8fdff;
+    }
+    
+    .section {
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 15px;
+      background-color: white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      color: #00838f;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #00acc1;
+    }
+    
+    .section-title i {
+      margin-right: 15px;
+      font-size: 1.8rem;
+    }
+    
+    .section-title h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .data-item {
+      display: flex;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    
+    .data-icon {
+      min-width: 50px;
+      height: 50px;
+      background: #e0f7fa;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      color: #00838f;
+      font-size: 1.3rem;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .data-item div {
+      flex: 1;
+    }
+    
+    .data-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #00838f;
+      font-size: 1rem;
+    }
+    
+    .data-item p {
+      font-size: 1rem;
+    }
+    
+    .education-item {
+      display: flex;
+      margin-bottom: 30px;
+      align-items: flex-start;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f8fdff;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    }
+    
+    .education-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .education-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 25px;
+      border: 2px solid #00acc1;
+      padding: 5px;
+      background: white;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .education-info {
+      flex: 1;
+    }
+    
+    .education-info h3 {
+      color: #00838f;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+    
+    .education-info .year {
+      color: #777;
+      font-style: italic;
+      margin-bottom: 10px;
+      display: block;
+      font-size: 1rem;
+    }
+    
+    .education-info p {
+      font-size: 1rem;
+    }
+    
+    .org-item, .hobby-item {
+      background: #f8fdff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border-left: 5px solid #00acc1;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+    
+    .org-item:hover, .hobby-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .org-item h3, .hobby-item h3 {
+      color: #00838f;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+    
+    .org-item i, .hobby-item i {
+      margin-right: 12px;
+      font-size: 1.1rem;
+    }
+    
+    .org-item p, .hobby-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    .footer-logo {
+      text-align: center;
+      padding: 30px;
+      background: #00838f;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .footer-logo-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: nowrap;
+    }
+    
+    .social-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .social-btn:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .social-btn.instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    
+    .social-btn.whatsapp {
+      background: #25D366;
+    }
+    
+    .social-btn.linkedin {
+      background: #0077B5;
+    }
+    
+    .social-btn.github {
+      background: #333;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 25px;
+      background: #007c8a;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .footer p {
+      margin-bottom: 15px;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .section {
+      animation: fadeIn 0.6s ease forwards;
+    }
+    
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .header {
+        padding: 40px 15px;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header p {
+        font-size: 1.1rem;
+      }
+      
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .content {
+        padding: 25px 15px;
+      }
+      
+      .section {
+        padding: 20px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.5rem;
+      }
+      
+      .section-title i {
+        font-size: 1.5rem;
+      }
+      
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .education-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .education-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .footer-social {
+        flex-wrap: wrap;
+      }
+      
+      .social-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+      
+      .footer-logo-img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="decorations">
+        <div class="decoration" style="top: 20%; left: 10%;">🌸</div>
+        <div class="decoration" style="top: 60%; left: 5%;">📚</div>
+        <div class="decoration" style="top: 30%; right: 8%;">🎓</div>
+        <div class="decoration" style="top: 70%; right: 12%;">✨</div>
+      </div>
+      
+      <div class="profile-img-container">
+        <img src="image.jpeg" alt="Foto Profil Nur Amalia" class="profile-img">
+      </div>
+      <h1>NUR AMALIA</h1>
+      <p>Mahasiswa Universitas Negeri Makassar</p>
+    </div>
+    
+    <!-- Content Section -->
+    <div class="content">
+      <!-- Data Pribadi -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-user-circle"></i>
+          <h2>Data Pribadi</h2>
+        </div>
+        
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-signature"></i>
+            </div>
+            <div>
+              <strong>Nama Lengkap</strong>
+              <p>Nur Amalia</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div>
+              <strong>Tempat, Tanggal Lahir</strong>
+              <p>Sinjai, 18 Juni 2006</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-venus"></i>
+            </div>
+            <div>
+              <strong>Jenis Kelamin</strong>
+              <p>Perempuan</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <strong>Alamat</strong>
+              <p>Jl. Dg Tata 1, Makassar</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <strong>No. Telepon</strong>
+              <p>085322694520</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <strong>Email</strong>
+              <p>nuramalia1801@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="data-item">
+            <div class="data-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div>
+              <strong>Instagram</strong>
+              <p>@nuramlia_18</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pendidikan -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-graduation-cap"></i>
+          <h2>Pendidikan</h2>
+        </div>
+        
+        <div class="education-item">
+          <img src="Logo SD.png" alt="Logo SD" class="education-logo">
+          <div class="education-info">
+            <h3>SDN 48 Lappae</h3>
+            <span class="year">2012 - 2018</span>
+            <p>Sekolah Dasar di Lappae, Sinjai</p>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <img src="logo smp.png" alt="Logo SMP" class="education-logo">
+          <div class="education-info">
+            <h3>SMPN 19 Sinjai</h3>
+            <span class="year">2019 - 2021</span>
+            <p>Sekolah Menengah Pertama di Sinjai</p>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <img src="logo smk.jpeg" alt="Logo SMK" class="education-logo">
+          <div class="education-info">
+            <h3>SMK Mannanti</h3>
+            <span class="year">2021 - 2024</span>
+            <p>Jurusan Teknik Komputer dan Jaringan</p>
+          </div>
+        </div>
+        
+        <div class="education-item">
+          <img src="logo unm.png" alt="Logo UNM" class="education-logo">
+          <div class="education-info">
+            <h3>Universitas Negeri Makassar</h3>
+            <span class="year">2024 - Sekarang</span>
+            <p>Prodi Teknik Komputer (S1)</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Organisasi -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-users"></i>
+          <h2>Pengalaman Organisasi</h2>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-heartbeat"></i> Anggota PMR SMPN 19 Sinjai</h3>
+          <p>Palang Merah Remaja di sekolah menengah pertama</p>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-campground"></i> Ketua Pramuka SMK Mannanti</h3>
+          <p>Memimpin kegiatan kepramukaan di SMK</p>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-pray"></i> Pengurus Ekstrakurikuler Rohis SMK Mannanti</h3>
+          <p>Pengurus Rohani Islam di sekolah menengah kejuruan</p>
+        </div>
+        
+        <div class="org-item">
+          <h3><i class="fas fa-dance"></i> Anggota Ekstrakurikuler Seni Tari</h3>
+          <p>Aktif dalam kegiatan seni tari tradisional dan modern</p>
+        </div>
+      </div>
+      
+      <!-- Hobi -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-heart"></i>
+          <h2>Hobi & Minat</h2>
+        </div>
+        
+        <div class="hobby-item">
+          <h3><i class="fas fa-book-reader"></i> Membaca Novel</h3>
+          <p>Menikmati berbagai genre novel fiksi dan non-fiksi</p>
+        </div>
+        
+        <div class="hobby-item">
+          <h3><i class="fas fa-film"></i> Menonton Film & Series</h3>
+          <p>Menonton film drama, dokumenter, dan series edukatif</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Logo Section -->
+    <div class="footer-logo">
+      <img src="logo unm.png" alt="Logo UNM" class="footer-logo-img">
+      <div class="footer-logo-text">Universitas Negeri Makassar</div>
+      
+      <!-- Social Media Buttons in Footer -->
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nrmlia_18?igsh=bXJidjN2OGl1eTl3" target="_blank" class="social-btn instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/qr/W6NUQGSTSKW6N1" target="_blank" class="social-btn whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nur-amalia-563b2437a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-btn linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Nuramalia18/Kuliah-Pemrograman-Web/tree/master" target="_blank" class="social-btn github">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2025 Biodata Nur Amalia. Made With Heart and Love.</p>
+    </div>
+  </div>
+</body>
+</html>
