@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - KOPI CUSS</title>
+    <title>KOPI CUSS - Kopi Pilihan Terbaik</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,7 +24,7 @@
             position: absolute; 
             top: -8px; 
             right: -8px; 
-            background: #dc2626;  
+            background: #dc2626; 
             color: white; 
             border-radius: 50%; 
             width: 20px; 
@@ -65,10 +65,9 @@
             box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
         }
         
-        .logo-text-effect {
+        .logo-text {
             color: #dc2626;
-            -webkit-text-stroke: 10px #000000;
-            paint-order: stroke fill;
+            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
         .menu-category-tabs {
             display: flex;
@@ -118,7 +117,6 @@
             height: 250px;
             object-fit: cover;
             object-position: center;
-            background: linear-gradient(45deg, #374151, #6b7280);
         }
         .menu-item-content {
             padding: 20px;
@@ -186,7 +184,6 @@
         body {
             padding-top: 80px;
         }
- 
         .cart-modal {
             display: none;
             position: fixed;
@@ -352,61 +349,137 @@
             70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
             100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
         }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #dc2626, #ea580c, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #f3f4f6;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.2);
+            border-color: rgba(220, 38, 38, 0.5);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(220, 38, 38, 0.3);
+            border-radius: 50%;
+            animation: float-particle 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-100px) rotate(180deg) scale(1.2); }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .magnetic-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="bg-zinc-900 text-white">
-    <nav class="fixed w-full z-50 bg-zinc-900/95 backdrop-blur-lg border-b-2 border-red-600 top-0 left-0 right-0">
+    <nav class="fixed w-full z-50 bg-zinc-900/95 backdrop-blur-lg border-b-2 border-red-600">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-              
                 <div class="flex items-center space-x-3">
-                   <a href="index.html" class="flex items-center space-x-3">
+                   <a href="/index" class="flex items-center space-x-3">
                        <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-red-600/50 overflow-hidden">
                            <img src="image/foto1.jpeg" alt="Logo Kopi" class="w-full h-full object-cover">
                        </div>
                        <div class="flex flex-col items-center">
-                           <span class="font-pacifico text-2xl text-red-600 drop-shadow-lg leading-none">KOPI</span>
-                           <span class="font-pacifico text-2xl text-red-600 drop-shadow-lg leading-none">CUSS</span>
+                           <span class="font-pacifico text-2xl logo-text leading-none">KOPI</span>
+                           <span class="font-pacifico text-2xl logo-text leading-none">CUSS</span>
                        </div>
                    </a>
                 </div>
-           
+
                 <ul class="hidden md:flex space-x-8 items-center">
-                    <li><a href="index.html" class="hover:text-red-600 transition font-semibold">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-red-600 transition font-semibold text-red-600">Menu</a></li>
-                    <li><a href="about.html" class="hover:text-red-600 transition font-semibold">Tentang</a></li>
-                    <li><a href="contact.html" class="hover:text-red-600 transition font-semibold">Kontak</a></li>
+                    <li><a href="/index" class="hover:text-red-600 transition font-semibold text-red-600">Home</a></li>
+                    <li><a href="/menu" class="hover:text-red-600 transition font-semibold">Menu</a></li>
+                    <li><a href="/about" class="hover:text-red-600 transition font-semibold">Tentang</a></li>
+                    <li><a href="/contact" class="hover:text-red-600 transition font-semibold">Kontak</a></li>
                     <li>
-        
-                        <a href="#" class="cart-icon hover:text-red-600 transition font-semibold relative" id="cart-button">
+                        <a href="#" class="cart-icon hover:text-red-600 transition font-semibold relative magnetic-btn" id="cart-button">
                             <i class="fas fa-shopping-cart text-xl"></i>
                             <span class="cart-count">0</span>
                         </a>
                     </li>
                 </ul>
-                
-             
+
                 <div class="md:hidden flex items-center space-x-4">
-                 
-                    <a href="#" class="cart-icon relative" id="mobile-cart-button">
+                    <a href="#" class="cart-icon relative magnetic-btn" id="mobile-cart-button">
                         <i class="fas fa-shopping-cart text-xl"></i>
                         <span class="cart-count">0</span>
                     </a>
-                    <button id="hamburger-btn" class="text-white hamburger">
+                    <button id="hamburger-btn" class="text-white hamburger magnetic-btn">
                         <span></span><span></span><span></span>
                     </button>
                 </div>
             </div>
         </div>
-
+        
         <div id="mobile-menu" class="mobile-menu">
             <ul>
-                <li><a href="index.html">Home <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="menu.html" class="text-red-600">Menu <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="about.html">Tentang <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="contact.html">Kontak <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/index" class="text-red-600">Home <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/menu">Menu <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/about">Tentang <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/contact">Kontak <i class="fas fa-chevron-right"></i></a></li>
                 <li>
-                    <a href="#" class="cart-icon relative" id="mobile-menu-cart-button">
+                    <a href="#" class="cart-icon relative magnetic-btn" id="mobile-menu-cart-button">
                         Keranjang <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
                     </a>
@@ -419,7 +492,7 @@
         <div class="cart-content">
             <div class="cart-header">
                 <h2 class="text-xl font-bold text-red-600">Keranjang Pesanan</h2>
-                <button id="close-cart" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+                <button id="close-cart" class="text-gray-400 hover:text-white text-2xl magnetic-btn">&times;</button>
             </div>
             <div class="cart-items" id="cart-items">
             </div>
@@ -431,7 +504,7 @@
                 <div class="chat-integration">
                     <p class="text-sm text-gray-300 mb-3">Kirim pesanan melalui WhatsApp:</p>
                     <div class="flex gap-3 justify-center">
-                        <a href="#" id="whatsapp-order" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition flex items-center gap-2 text-lg font-semibold">
+                        <a href="#" id="whatsapp-order" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition flex items-center gap-2 text-lg font-semibold magnetic-btn">
                             <i class="fab fa-whatsapp text-xl"></i> Pesan via WhatsApp
                         </a>
                     </div>
@@ -440,152 +513,46 @@
         </div>
     </div>
 
-    <section id="menu" class="min-h-screen bg-gradient-to-b from-zinc-900 to-zinc-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
-        <div class="text-center mb-8">
-            <h2 class="font-pacifico text-4xl md:text-5xl text-red-600 mb-4">Menu Lengkap</h2>
-                <p class="text-gray-400 text-lg">Pilihan terbaik untuk setiap momen spesial Anda</p>
-                <div class="menu-category-tabs">
-                    <div class="menu-tab active" data-category="all">Semua Menu</div>
-                    <div class="menu-tab" data-category="kopi">Kopi</div>
-                    <div class="menu-tab" data-category="non-kopi">Non-Kopi</div>
-                    <div class="menu-tab" data-category="best-seller">Best Seller</div>
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0 flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-br from-red-900/70 via-zinc-900/80 to-black/70"></div>
+            <img src="image/foto2.jpeg" alt="Coffee Background" class="w-full h-full object-cover opacity-70">
+            <div class="absolute inset-0 bg-pattern"></div>
+        </div>
+        
+        <div id="particles-container" class="absolute inset-0 overflow-hidden"></div>
+        
+        <div class="coffee-bean w-16 h-16 top-20 left-10" style="animation-delay: 0s;"></div>
+        <div class="coffee-bean w-12 h-12 top-40 right-20" style="animation-delay: 1s;"></div>
+        <div class="coffee-bean w-20 h-20 bottom-32 left-1/4" style="animation-delay: 2s;"></div>
+        <div class="coffee-bean w-14 h-14 bottom-20 right-1/3" style="animation-delay: 1.5s;"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <div class="animate-fadeInUp">
+               <h1 class="hero-title font-pacifico">KOPI CUSS</h1>
+                <div class="flex items-center justify-center space-x-2 mb-6">
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
+                    <span class="text-red-600 text-2xl">🥤</span>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
                 </div>
-            </div>
-            
-            <div class="menu-category active" id="all">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="menu-item-card hover-scale" data-category="kopi">
-                        <div class="relative">
-                            <img src="image/signature.jpeg" alt="Kopi Signature Cuss" class="menu-item-image">
-                            <div class="badge badge-recommended">🔥 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Kopi Signature Cuss</h3>
-                            <p class="menu-item-description">Racikan spesial khas KOPI CUSS dengan cita rasa yang unik dan nikmat untuk pengalaman ngopi yang tak terlupakan.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">12K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Kopi Signature Cuss" data-price="12">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Kopi Signature Cuss" data-price="12">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="kopi best-seller">
-                        <div class="relative">
-                            <img src="image/kopi aren.jpeg" alt="Kopi Aren" class="menu-item-image">
-                             <div class="badge badge-best">⭐ Best Seller</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Kopi Aren</h3>
-                            <p class="menu-item-description">Kopi dengan gula aren asli yang memberikan rasa manis alami dan aroma khas yang menggugah selera.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Kopi Aren" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Kopi Aren" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="menu-item-card" data-category="kopi">
-                        <div class="relative">
-                            <img src="image/butterscoth.jpeg" alt="Kopi Butterscotch" class="menu-item-image">
-                            <div class="badge badge-recommended">🔥 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Kopi Butterscotch</h3>
-                            <p class="menu-item-description">Perpaduan sempurna kopi dengan butterscotch yang manis dan creamy, menciptakan harmoni rasa yang memanjakan.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">12K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Kopi Butterscotch" data-price="12">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Kopi Butterscotch" data-price="12">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="non-kopi">
-                        <div class="relative">
-                            <img src="image/green.jpeg" alt="Greentea Cuss" class="menu-item-image">
-                            <div class="badge badge-recommended">🌿 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Greentea Cuss</h3>
-                            <p class="menu-item-description">Teh hijau segar dengan rasa yang menenangkan, cocok untuk menemani saat-saat santai Anda.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Greentea Cuss" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Greentea Cuss" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="non-kopi">
-                        <div class="relative">
-                            <img src="image/coklat.jpeg" alt="Chocolate Cuss" class="menu-item-image">
-                            <div class="badge badge-recommended">🍫 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Chocolate Cuss</h3>
-                            <p class="menu-item-description">Cokelat lezat dengan rasa yang creamy dan nikmat, memberikan kenikmatan yang sempurna bagi pecinta cokelat.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Chocolate Cuss" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Chocolate Cuss" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="non-kopi">
-                        <div class="relative">
-                            <img src="image/lecy.jpeg" alt="Lychee Tea" class="menu-item-image">
-                            <div class="badge badge-recommended">🍓 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Lychee Tea</h3>
-                            <p class="menu-item-description">Kesegaran leci yang menyegarkan untuk hari-hari panas, memberikan sensasi rasa buah yang nikmat dan menyegarkan.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Lychee Tea" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Lychee Tea" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category" id="kopi">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                </div>
-            </div>
-
-            <div class="menu-category" id="non-kopi">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                </div>
-            </div>
-
-            <div class="menu-category" id="best-seller">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <p class="hero-subtitle">Singgah, Seruput, Cuuuss</p>
+                <p class="hero-description">Sambut langkah Pertamamu dengan Kopi Cuss </p>
+                <p class="text-2xl md:text-3xl mb-8 text-red-200 font-light">take your coffee and cuss your way!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/menu" class="color-change-btn text-white font-bold py-4 px-8 rounded-full magnetic-btn">Lihat Menu</a>
+                    <a href="/contact" class="color-change-btn text-white font-bold py-4 px-8 rounded-full magnetic-btn">Pesan Sekarang</a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <a href="https://wa.me/6282192347565" target="_blank" class="floating-action" id="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -599,6 +566,69 @@
             const cartItems = document.getElementById('cart-items');
             const cartTotal = document.getElementById('cart-total');
             const whatsappOrder = document.getElementById('whatsapp-order');
+
+            function createParticles() {
+                const container = document.getElementById('particles-container');
+                const particleCount = 30;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    const size = Math.random() * 20 + 5;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const delay = Math.random() * 6;
+                    const duration = Math.random() * 12 + 8;
+                    
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = posX + '%';
+                    particle.style.top = posY + '%';
+                    particle.style.animationDelay = delay + 's';
+                    particle.style.animationDuration = duration + 's';
+                    particle.style.background = `rgba(220, 38, 38, ${Math.random() * 0.3 + 0.1})`;
+                    
+                    container.appendChild(particle);
+                }
+            }
+
+            function initScrollReveal() {
+                const scrollElements = document.querySelectorAll('.scroll-reveal');
+                
+                function checkScroll() {
+                    scrollElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        const elementBottom = element.getBoundingClientRect().bottom;
+                        const viewportHeight = window.innerHeight;
+                        
+                        if (elementTop < viewportHeight - 100 && elementBottom > 0) {
+                            element.classList.add('active');
+                        }
+                    });
+                }
+                
+                checkScroll();
+                window.addEventListener('scroll', checkScroll);
+            }
+
+            function initMagneticButtons() {
+                const magneticBtns = document.querySelectorAll('.magnetic-btn');
+                
+                magneticBtns.forEach(btn => {
+                    btn.addEventListener('mousemove', function(e) {
+                        const width = this.offsetWidth;
+                        const height = this.offsetHeight;
+                        const x = (e.pageX - this.offsetLeft - width / 2) * 0.1;
+                        const y = (e.pageY - this.offsetTop - height / 2) * 0.1;
+                        
+                        this.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
+                    });
+                    
+                    btn.addEventListener('mouseleave', function() {
+                        this.style.transform = 'scale(1) translate(0px, 0px)';
+                    });
+                });
+            }
 
             function formatCartCount(count) {
                 if (count >= 1000) {
@@ -640,12 +670,12 @@
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="quantity-controls">
-                                <button class="quantity-btn decrease" data-index="${index}">-</button>
+                                <button class="quantity-btn decrease magnetic-btn" data-index="${index}">-</button>
                                 <span class="quantity">${item.quantity}</span>
-                                <button class="quantity-btn increase" data-index="${index}">+</button>
+                                <button class="quantity-btn increase magnetic-btn" data-index="${index}">+</button>
                             </div>
                             <div class="font-semibold">${itemTotal}K</div>
-                            <button class="remove-btn" data-index="${index}">
+                            <button class="remove-btn magnetic-btn" data-index="${index}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -654,6 +684,7 @@
                 });
                 
                 cartTotal.textContent = `Rp ${total}K`;
+  
                 document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         const index = e.target.dataset.index;
@@ -711,15 +742,6 @@
                 return encodeURIComponent(message);
             }
 
-            function generateSingleOrderMessage(itemName, itemPrice) {
-                let message = `Halo KOPI CUSS, saya ingin memesan:\n\n`;
-                message += `• ${itemName} x1 = ${itemPrice}K\n\n`;
-                message += `Total: ${itemPrice}K\n\n`;
-                message += "Mohon konfirmasi ketersediaan dan informasi pengiriman. Terima kasih!";
-                
-                return encodeURIComponent(message);
-            }
-
             function openCart() {
                 cartModal.classList.add('active');
                 updateCartDisplay();
@@ -738,6 +760,7 @@
                 e.preventDefault();
                 openCart();
             });
+
             mobileMenuCartButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 openCart();
@@ -768,18 +791,6 @@
                 window.open(url, '_blank');
             });
 
-            document.querySelectorAll('.whatsapp-order-btn').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const name = e.target.getAttribute('data-name');
-                    const price = parseInt(e.target.getAttribute('data-price'));
-                    
-                    const message = generateSingleOrderMessage(name, price);
-                    const phoneNumber = '6282192347565';
-                    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-                    window.open(url, '_blank');
-                });
-            });
-
             const hamburgerBtn = document.getElementById('hamburger-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             
@@ -803,104 +814,14 @@
                     }
                 });
             }
-            document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const name = e.target.getAttribute('data-name');
-                    const price = parseInt(e.target.getAttribute('data-price'));
-                    
-                    const existingItemIndex = cart.findIndex(item => item.name === name);
-                    
-                    if (existingItemIndex !== -1) {
-                        cart[existingItemIndex].quantity += 1;
-                    } else {
-                        cart.push({ name, price, quantity: 1 });
-                    }
-                    
-                    saveCart();
-                    updateCartCount();
-                    
-                    const toast = document.createElement('div');
-                    toast.className = 'form-success';
-                    toast.innerHTML = `
-                        <i class="fas fa-check-circle"></i>
-                        <span>${name} ditambahkan ke keranjang!</span>
-                    `;
-                    document.body.appendChild(toast);
-                    
-                    setTimeout(() => {
-                        if (document.body.contains(toast)) {
-                            document.body.removeChild(toast);
-                        }
-                    }, 3000);
-                });
-            });
 
-            const menuTabs = document.querySelectorAll('.menu-tab');
-            const menuCategories = document.querySelectorAll('.menu-category');
-            const menuItems = document.querySelectorAll('.menu-item-card');
-            
-            menuTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    menuTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    menuCategories.forEach(cat => cat.classList.remove('active'));
-                    const categoryId = tab.getAttribute('data-category');
-                    if (categoryId === 'all') {
-                        document.getElementById('all').classList.add('active');
-                    } else {
-                        document.getElementById(categoryId).classList.add('active');
-                        const categoryContainer = document.getElementById(categoryId).querySelector('.grid');
-                        categoryContainer.innerHTML = '';
-                        menuItems.forEach(item => {
-                            const itemCategories = item.getAttribute('data-category').split(' ');
-                            if (itemCategories.includes(categoryId)) {
-                                const clonedItem = item.cloneNode(true);
-                                categoryContainer.appendChild(clonedItem);
-     
-                                clonedItem.querySelector('.add-to-cart').addEventListener('click', (e) => {
-                                    const name = e.target.getAttribute('data-name');
-                                    const price = parseInt(e.target.getAttribute('data-price'));
-                                    
-                                    const existingItemIndex = cart.findIndex(item => item.name === name);
-                                    
-                                    if (existingItemIndex !== -1) {
-                                        cart[existingItemIndex].quantity += 1;
-                                    } else {
-                                        cart.push({ name, price, quantity: 1 });
-                                    }
-                                    
-                                    saveCart();
-                                    updateCartCount();
-                                    
-                                    const toast = document.createElement('div');
-                                    toast.className = 'form-success';
-                                    toast.innerHTML = `
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>${name} ditambahkan ke keranjang!</span>
-                                    `;
-                                    document.body.appendChild(toast);
-                                    
-                                    setTimeout(() => {
-                                        if (document.body.contains(toast)) {
-                                            document.body.removeChild(toast);
-                                        }
-                                    }, 3000);
-                                });
+            function init() {
+                createParticles();
+                initScrollReveal();
+                initMagneticButtons();
+            }
 
-                                clonedItem.querySelector('.whatsapp-order-btn').addEventListener('click', (e) => {
-                                    const name = e.target.getAttribute('data-name');
-                                    const price = parseInt(e.target.getAttribute('data-price'));
-                                    
-                                    const message = generateSingleOrderMessage(name, price);
-                                    const phoneNumber = '6282192347565';
-                                    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-                                    window.open(url, '_blank');
-                                });
-                            }
-                        });
-                    }
-                });
-            });
+            init();
             updateCartCount();
         });
     </script>

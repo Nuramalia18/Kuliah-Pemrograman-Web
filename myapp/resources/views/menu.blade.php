@@ -360,7 +360,7 @@
             <div class="flex justify-between items-center h-20">
               
                 <div class="flex items-center space-x-3">
-                   <a href="index.html" class="flex items-center space-x-3">
+                   <a href="/index" class="flex items-center space-x-3">
                        <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-red-600/50 overflow-hidden">
                            <img src="image/foto1.jpeg" alt="Logo Kopi" class="w-full h-full object-cover">
                        </div>
@@ -372,10 +372,10 @@
                 </div>
            
                 <ul class="hidden md:flex space-x-8 items-center">
-                    <li><a href="index.html" class="hover:text-red-600 transition font-semibold">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-red-600 transition font-semibold text-red-600">Menu</a></li>
-                    <li><a href="about.html" class="hover:text-red-600 transition font-semibold">Tentang</a></li>
-                    <li><a href="contact.html" class="hover:text-red-600 transition font-semibold">Kontak</a></li>
+                    <li><a href="/index" class="hover:text-red-600 transition font-semibold">Home</a></li>
+                    <li><a href="/menu" class="hover:text-red-600 transition font-semibold text-red-600">Menu</a></li>
+                    <li><a href="/about" class="hover:text-red-600 transition font-semibold">Tentang</a></li>
+                    <li><a href="/contact" class="hover:text-red-600 transition font-semibold">Kontak</a></li>
                     <li>
         
                         <a href="#" class="cart-icon hover:text-red-600 transition font-semibold relative" id="cart-button">
@@ -401,10 +401,10 @@
 
         <div id="mobile-menu" class="mobile-menu">
             <ul>
-                <li><a href="index.html">Home <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="menu.html" class="text-red-600">Menu <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="about.html">Tentang <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="contact.html">Kontak <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/index">Home <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/menu" class="text-red-600">Menu <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/about">Tentang <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="/contact">Kontak <i class="fas fa-chevron-right"></i></a></li>
                 <li>
                     <a href="#" class="cart-icon relative" id="mobile-menu-cart-button">
                         Keranjang <i class="fas fa-shopping-cart"></i>

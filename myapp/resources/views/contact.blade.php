@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - KOPI CUSS</title>
+    <title>Kontak - KOPI CUSS</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,7 +24,7 @@
             position: absolute; 
             top: -8px; 
             right: -8px; 
-            background: #dc2626;  
+            background: #dc2626; 
             color: white; 
             border-radius: 50%; 
             width: 20px; 
@@ -45,10 +45,6 @@
         .hamburger { transition: all 0.3s ease; } .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); } .hamburger.active span:nth-child(2) { opacity: 0; } .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-6px); }
         .hamburger span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
         
-        .menu-image-container { position: relative; overflow: hidden; border-radius: 1rem; }
-        .menu-image { width: 100%; height: 250px; object-fit: cover; object-position: center; transition: transform 0.5s ease; }
-        .menu-image:hover { transform: scale(1.1); }
-        
         .color-change-btn { 
             background: linear-gradient(45deg, #dc2626, #ea580c, #dc2626);
             background-size: 200% 200%;
@@ -65,116 +61,49 @@
             box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
         }
         
-        .logo-text-effect {
-            color: #dc2626;
-            -webkit-text-stroke: 10px #000000;
-            paint-order: stroke fill;
+        .contact-form input, .contact-form textarea { 
+            background: rgba(255,255,255,0.1); 
+            border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 12px; 
+            padding: 14px; 
+            color: white; 
+            width: 100%; 
+            transition: all 0.3s ease; 
+            font-size: 16px;
         }
-        .menu-category-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
+        .contact-form input:focus, .contact-form textarea:focus { 
+            outline: none; 
+            border-color: #dc2626; 
+            background: rgba(255,255,255,0.15); 
+            box-shadow: 0 0 0 3px rgba(220,38,38,0.1); 
         }
-        .menu-tab {
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
+        .contact-form input::placeholder, .contact-form textarea::placeholder { 
+            color: rgba(255,255,255,0.6); 
         }
-        .menu-tab.active {
-            background: #dc2626;
-            color: white;
-        }
-        .menu-tab:hover {
-            background: rgba(220, 38, 38, 0.7);
-        }
-        .menu-category {
-            display: none;
-        }
-        .menu-category.active {
-            display: block;
-        }
-        .menu-item-card {
+        
+        .contact-info-card {
             background: rgba(255,255,255,0.05);
             border-radius: 20px;
-            overflow: hidden;
+            padding: 30px;
             transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.1);
             height: 100%;
-            display: flex;
-            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
         }
-        .menu-item-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        .contact-info-card:hover {
+            transform: translateY(-5px);
             border-color: rgba(220, 38, 38, 0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
-        .menu-item-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            object-position: center;
-            background: linear-gradient(45deg, #374151, #6b7280);
-        }
-        .menu-item-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .menu-item-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: white;
-        }
-        .menu-item-description {
-            color: #a1a1aa;
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-        .menu-item-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-        }
-        .menu-item-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #dc2626;
-        }
-        .menu-item-actions {
-            display: flex;
-            gap: 10px;
-        }
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 5px 12px;
+        
+        .map-container {
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            z-index: 10;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .badge-best {
-            background: linear-gradient(45deg, #f59e0b, #d97706);
-            color: white;
-        }
-        .badge-recommended {
-            background: linear-gradient(45deg, #10b981, #059669);
-            color: white;
-        }
-        .badge-new {
-            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
-            color: white;
-        }
-
+   
         nav {
             position: fixed !important;
             top: 0 !important;
@@ -186,7 +115,55 @@
         body {
             padding-top: 80px;
         }
- 
+        
+        .location-item {
+            margin-bottom: 8px;
+            padding-left: 8px;
+            border-left: 2px solid #dc2626;
+        }
+        
+        .contact-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.4) 0%, rgba(101, 67, 33, 0.6) 100%);
+            z-index: 1;
+        }
+        
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .contact-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+            filter: brightness(1.1) contrast(1.1);
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+
         .cart-modal {
             display: none;
             position: fixed;
@@ -292,9 +269,30 @@
             background: #dc2626;
         }
         
-        .chat-integration {
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-top: 20px;
-            text-align: center;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: #dc2626;
+            transform: translateY(-3px);
+            color: white;
         }
         
         .form-success {
@@ -321,6 +319,35 @@
         @keyframes fadeOut {
             from { opacity: 1; }
             to { opacity: 0; }
+        }
+        
+        .contact-section {
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(24, 24, 27, 0.9), rgba(39, 39, 42, 0.95));
+            z-index: -1;
         }
         
         .floating-action {
@@ -352,13 +379,239 @@
             70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
             100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
         }
+        
+        .branch-locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .branch-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #dc2626;
+            transition: all 0.3s ease;
+        }
+        
+        .branch-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .branch-name {
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+        
+        .branch-address {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-method:hover {
+            background: rgba(220, 38, 38, 0.2);
+            color: white;
+        }
+        
+        .contact-method i {
+            color: #dc2626;
+        }
+        
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link:hover {
+            background: rgba(37, 211, 102, 0.2);
+            color: white;
+        }
+        
+        .whatsapp-link i {
+            color: #25D366;
+        }
+        
+        .image-enhancement {
+            filter: brightness(1.15) contrast(1.2) saturate(1.1);
+            transform: scale(1.02);
+        }
+        
+        .sharp-image {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+    
+        .chat-integration {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .event-catering-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            height: 100%;
+        }
+
+        .event-catering-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .event-catering-title h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .event-catering-title p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        .event-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .event-type {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .event-type:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+            border-color: rgba(220, 38, 38, 0.5);
+        }
+
+        .event-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background: linear-gradient(45deg, #dc2626, #ea580c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .event-type h3 {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .event-type p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .event-cta {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .event-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .hours-container {
+            margin-top: 20px;
+        }
+        
+        .hour-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .hour-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(220, 38, 38, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .hour-icon i {
+            color: #dc2626;
+            font-size: 1.2rem;
+        }
+        
+        .hour-details h3 {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .hour-details p {
+            color: rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 <body class="bg-zinc-900 text-white">
     <nav class="fixed w-full z-50 bg-zinc-900/95 backdrop-blur-lg border-b-2 border-red-600 top-0 left-0 right-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-              
+             
                 <div class="flex items-center space-x-3">
                    <a href="index.html" class="flex items-center space-x-3">
                        <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-red-600/50 overflow-hidden">
@@ -370,14 +623,13 @@
                        </div>
                    </a>
                 </div>
-           
+
                 <ul class="hidden md:flex space-x-8 items-center">
                     <li><a href="index.html" class="hover:text-red-600 transition font-semibold">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-red-600 transition font-semibold text-red-600">Menu</a></li>
+                    <li><a href="menu.html" class="hover:text-red-600 transition font-semibold">Menu</a></li>
                     <li><a href="about.html" class="hover:text-red-600 transition font-semibold">Tentang</a></li>
-                    <li><a href="contact.html" class="hover:text-red-600 transition font-semibold">Kontak</a></li>
+                    <li><a href="contact.html" class="hover:text-red-600 transition font-semibold text-red-600">Kontak</a></li>
                     <li>
-        
                         <a href="#" class="cart-icon hover:text-red-600 transition font-semibold relative" id="cart-button">
                             <i class="fas fa-shopping-cart text-xl"></i>
                             <span class="cart-count">0</span>
@@ -385,9 +637,7 @@
                     </li>
                 </ul>
                 
-             
                 <div class="md:hidden flex items-center space-x-4">
-                 
                     <a href="#" class="cart-icon relative" id="mobile-cart-button">
                         <i class="fas fa-shopping-cart text-xl"></i>
                         <span class="cart-count">0</span>
@@ -398,13 +648,13 @@
                 </div>
             </div>
         </div>
-
+    
         <div id="mobile-menu" class="mobile-menu">
             <ul>
                 <li><a href="index.html">Home <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="menu.html" class="text-red-600">Menu <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="menu.html">Menu <i class="fas fa-chevron-right"></i></a></li>
                 <li><a href="about.html">Tentang <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="contact.html">Kontak <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="contact.html" class="text-red-600">Kontak <i class="fas fa-chevron-right"></i></a></li>
                 <li>
                     <a href="#" class="cart-icon relative" id="mobile-menu-cart-button">
                         Keranjang <i class="fas fa-shopping-cart"></i>
@@ -431,7 +681,7 @@
                 <div class="chat-integration">
                     <p class="text-sm text-gray-300 mb-3">Kirim pesanan melalui WhatsApp:</p>
                     <div class="flex gap-3 justify-center">
-                        <a href="#" id="whatsapp-order" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition flex items-center gap-2 text-lg font-semibold">
+                        <a href="#" id="whatsapp-order" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full transition flex items-center gap-2 text-lg font-semibold">
                             <i class="fab fa-whatsapp text-xl"></i> Pesan via WhatsApp
                         </a>
                     </div>
@@ -440,150 +690,187 @@
         </div>
     </div>
 
-    <section id="menu" class="min-h-screen bg-gradient-to-b from-zinc-900 to-zinc-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
-        <div class="text-center mb-8">
-            <h2 class="font-pacifico text-4xl md:text-5xl text-red-600 mb-4">Menu Lengkap</h2>
-                <p class="text-gray-400 text-lg">Pilihan terbaik untuk setiap momen spesial Anda</p>
-                <div class="menu-category-tabs">
-                    <div class="menu-tab active" data-category="all">Semua Menu</div>
-                    <div class="menu-tab" data-category="kopi">Kopi</div>
-                    <div class="menu-tab" data-category="non-kopi">Non-Kopi</div>
-                    <div class="menu-tab" data-category="best-seller">Best Seller</div>
+    <section class="contact-hero">
+        <img src="image/foto1.jpeg" 
+             alt="Coffee Background" class="contact-hero-bg image-enhancement sharp-image">
+        
+        <div class="coffee-bean w-16 h-16 top-20 left-10" style="animation-delay: 0s;"></div>
+        <div class="coffee-bean w-12 h-12 top-40 right-20" style="animation-delay: 1s;"></div>
+        <div class="coffee-bean w-20 h-20 bottom-32 left-1/4" style="animation-delay: 2s;"></div>
+        <div class="coffee-bean w-14 h-14 bottom-20 right-1/3" style="animation-delay: 1.5s;"></div>
+
+        <div class="contact-hero-content">
+            <div class="animate-fadeInUp">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Hubungi <span class="text-red-600">KOPI CUSS</span></h1>
+                <div class="flex items-center justify-center space-x-2 mb-6">
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
+                    <span class="text-red-600 text-2xl">📞</span>
+                    <div class="h-1 w-20 bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
                 </div>
-            </div>
-            
-            <div class="menu-category active" id="all">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="menu-item-card hover-scale" data-category="kopi">
-                        <div class="relative">
-                            <img src="image/signature.jpeg" alt="Kopi Signature Cuss" class="menu-item-image">
-                            <div class="badge badge-recommended">🔥 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Kopi Signature Cuss</h3>
-                            <p class="menu-item-description">Racikan spesial khas KOPI CUSS dengan cita rasa yang unik dan nikmat untuk pengalaman ngopi yang tak terlupakan.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">12K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Kopi Signature Cuss" data-price="12">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Kopi Signature Cuss" data-price="12">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="kopi best-seller">
-                        <div class="relative">
-                            <img src="image/kopi aren.jpeg" alt="Kopi Aren" class="menu-item-image">
-                             <div class="badge badge-best">⭐ Best Seller</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Kopi Aren</h3>
-                            <p class="menu-item-description">Kopi dengan gula aren asli yang memberikan rasa manis alami dan aroma khas yang menggugah selera.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Kopi Aren" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Kopi Aren" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="menu-item-card" data-category="kopi">
-                        <div class="relative">
-                            <img src="image/butterscoth.jpeg" alt="Kopi Butterscotch" class="menu-item-image">
-                            <div class="badge badge-recommended">🔥 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Kopi Butterscotch</h3>
-                            <p class="menu-item-description">Perpaduan sempurna kopi dengan butterscotch yang manis dan creamy, menciptakan harmoni rasa yang memanjakan.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">12K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Kopi Butterscotch" data-price="12">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Kopi Butterscotch" data-price="12">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="non-kopi">
-                        <div class="relative">
-                            <img src="image/green.jpeg" alt="Greentea Cuss" class="menu-item-image">
-                            <div class="badge badge-recommended">🌿 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Greentea Cuss</h3>
-                            <p class="menu-item-description">Teh hijau segar dengan rasa yang menenangkan, cocok untuk menemani saat-saat santai Anda.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Greentea Cuss" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Greentea Cuss" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="non-kopi">
-                        <div class="relative">
-                            <img src="image/coklat.jpeg" alt="Chocolate Cuss" class="menu-item-image">
-                            <div class="badge badge-recommended">🍫 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Chocolate Cuss</h3>
-                            <p class="menu-item-description">Cokelat lezat dengan rasa yang creamy dan nikmat, memberikan kenikmatan yang sempurna bagi pecinta cokelat.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Chocolate Cuss" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Chocolate Cuss" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item-card hover-scale" data-category="non-kopi">
-                        <div class="relative">
-                            <img src="image/lecy.jpeg" alt="Lychee Tea" class="menu-item-image">
-                            <div class="badge badge-recommended">🍓 Recommended</div>
-                        </div>
-                        <div class="menu-item-content">
-                            <h3 class="menu-item-title">Lychee Tea</h3>
-                            <p class="menu-item-description">Kesegaran leci yang menyegarkan untuk hari-hari panas, memberikan sensasi rasa buah yang nikmat dan menyegarkan.</p>
-                            <div class="menu-item-footer">
-                                <span class="menu-item-price">10K</span>
-                                <div class="menu-item-actions">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition text-sm whatsapp-order-btn" data-name="Lychee Tea" data-price="10">Pesan</button>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition text-sm add-to-cart" data-name="Lychee Tea" data-price="10">+ Keranjang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category" id="kopi">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                </div>
-            </div>
-
-            <div class="menu-category" id="non-kopi">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                </div>
-            </div>
-
-            <div class="menu-category" id="best-seller">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <p class="text-xl md:text-2xl mb-8 text-gray-200 font-light">Siap Melayani Pesanan dan Pertanyaan Anda</p>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">Tim kami siap membantu Anda dengan senang hati</p>
+                
+                <div class="contact-methods mt-8">
+                    <a href="https://www.instagram.com/kopicuss?igsh=MXRsMnp2cGpwemU4YQ==" target="_blank" class="contact-method">
+                        <i class="fab fa-instagram"></i>
+                        <span>@kopicuss</span>
+                    </a>
+                    <a href="https://wa.me/6282349869867" target="_blank" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/6282192347565" target="_blank" class="floating-action" id="whatsapp-btn">
+    <section class="contact-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="animate-fadeInUp">
+                    <div class="event-catering-section hover-scale">
+                        <div class="event-catering-title">
+                            <h2 class="font-pacifico">Layanan Pesanan</h2>
+                            <p>Menerima pesanan untuk berbagai acara dan kegiatan</p>
+                        </div>
+                        
+                        <div class="event-types">
+                            <div class="event-type">
+                                <div class="event-icon">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                                <h3>Kegiatan Sekolah</h3>
+                                <p>Seminar, workshop, acara sekolah</p>
+                            </div>
+                            
+                            <div class="event-type">
+                                <div class="event-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <h3>Festival & Konser</h3>
+                                <p>Event musik dan festival budaya</p>
+                            </div>
+                            
+                            <div class="event-type">
+                                <div class="event-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3>Acara Kantor</h3>
+                                <p>Meeting, training, company event</p>
+                            </div>
+                            
+                            <div class="event-type">
+                                <div class="event-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Acara Lainnya</h3>
+                                <p>Pernikahan, ulang tahun, gathering</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://wa.me/6282349869867?text=Halo%20KOPI%20CUSS,%20saya%20ingin%20konsultasi%20untuk%20pemesanan%20catering%20event" target="_blank" class="event-cta">
+                            <i class="fab fa-whatsapp mr-2"></i> Konsultasi Event via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="contact-info-card hover-scale h-full">
+                        <div class="space-y-6">
+                           <div class="text-center mb-6">
+                            <h2 class="text-3xl font-bold text-red-600 font-pacifico mb-2">Informasi Kontak</h2>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-14 h-14 bg-red-600/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fab fa-instagram text-red-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Instagram</h3>
+                                    <p class="text-gray-300">@kopicuss</p>
+                                </div>
+                            </div>
+                            <div class="hours-container">
+                                <div class="hour-item">
+                                    <div class="hour-icon">
+                                        <i class="fas fa-clock text-red-400"></i>
+                                    </div>
+                                    <div class="hour-details">
+                                        <h3 class="font-semibold text-lg">Cuss In</h3>
+                                        <p class="text-gray-300">Setiap Hari: 09:00 WITA</p>
+                                    </div>
+                                </div>
+                                <div class="hour-item">
+                                    <div class="hour-icon">
+                                        <i class="fas fa-clock text-red-400"></i>
+                                    </div>
+                                    <div class="hour-details">
+                                        <h3 class="font-semibold text-lg">Cuss Out</h3>
+                                        <p class="text-gray-300">Setiap Hari: 18:00 WITA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="font-semibold text-lg mb-4">Ikuti Kami</h3>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/kopicuss?igsh=MXRsMnp2cGpwemU4YQ==" target="_blank" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://wa.me/6282349869867" target="_blank" class="social-link">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="mt-16 animate-fadeInUp" style="animation-delay: 0.6s;">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-red-600 mb-4">Semua Lokasi KOPI CUSS</h2>
+                    <p class="text-gray-300 text-lg">Temukan KopiCuss terdekat dari lokasi Anda</p>
+                </div>
+                
+                <div class="branch-locations">
+                    <div class="branch-card">
+                        <div class="branch-name">UNM Parangtambung</div>
+                        <div class="branch-address">Jl. Mallengkeri Raya (Depan Kampus UNM Parangtambung)</div>
+                    </div>
+                    <div class="branch-card">
+                        <div class="branch-name">UNM Gunungsari</div>
+                        <div class="branch-address">Jl. Raya Pendidikan (Depan kampus UNM Gunungsari)</div>
+                    </div>
+                    <div class="branch-card">
+                        <div class="branch-name">Hotel Lamacca</div>
+                        <div class="branch-address">Jl. A.P. Pettarani (Samping Hotel Lamacca)</div>
+                    </div>
+                    <div class="branch-card">
+                        <div class="branch-name">KMR.DIY Samata</div>
+                        <div class="branch-address">Jl. Sultan Alauddin Samata (Depan KMR.DIY Samata)</div>
+                    </div>
+                    <div class="branch-card">
+                        <div class="branch-name">UIN Samata</div>
+                        <div class="branch-address">Jl. Sultan Alauddin Samata (Depan Kampus UIN Samata)</div>
+                    </div>
+                    <div class="branch-card">
+                        <div class="branch-name">Patria Artha</div>
+                        <div class="branch-address">Jl. Tun Abdul Razak (Depan Kampus Patria Artha)</div>
+                    </div>
+                    <div class="branch-card">
+                        <div class="branch-name">SPBU Hertasning</div>
+                        <div class="branch-address">Jl. Hertasning Raya (Depan SPBU Hertasning)</div>
+                    </div>
+                    <div class="branch-card">
+                        <div class="branch-name">Modern Estate</div>
+                        <div class="branch-address">Jl. Tun Abdul Razak (Depan Modern Estate)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6282349869867" target="_blank" class="floating-action" id="whatsapp-btn">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -591,7 +878,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartModal = document.getElementById('cart-modal');
-            
+  
             const cartButton = document.getElementById('cart-button');
             const mobileCartButton = document.getElementById('mobile-cart-button');
             const mobileMenuCartButton = document.getElementById('mobile-menu-cart-button');
@@ -610,7 +897,7 @@
             function updateCartCount() {
                 const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
                 const formattedCount = formatCartCount(totalItems);
-                
+ 
                 document.querySelectorAll('.cart-count').forEach(element => {
                     element.textContent = formattedCount;
                 });
@@ -654,6 +941,7 @@
                 });
                 
                 cartTotal.textContent = `Rp ${total}K`;
+                
                 document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         const index = e.target.dataset.index;
@@ -711,15 +999,6 @@
                 return encodeURIComponent(message);
             }
 
-            function generateSingleOrderMessage(itemName, itemPrice) {
-                let message = `Halo KOPI CUSS, saya ingin memesan:\n\n`;
-                message += `• ${itemName} x1 = ${itemPrice}K\n\n`;
-                message += `Total: ${itemPrice}K\n\n`;
-                message += "Mohon konfirmasi ketersediaan dan informasi pengiriman. Terima kasih!";
-                
-                return encodeURIComponent(message);
-            }
-
             function openCart() {
                 cartModal.classList.add('active');
                 updateCartDisplay();
@@ -738,9 +1017,11 @@
                 e.preventDefault();
                 openCart();
             });
+
             mobileMenuCartButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 openCart();
+
                 const mobileMenu = document.getElementById('mobile-menu');
                 const hamburgerBtn = document.getElementById('hamburger-btn');
                 mobileMenu.classList.remove('active');
@@ -763,21 +1044,9 @@
                 }
                 
                 const message = generateOrderMessage();
-                const phoneNumber = '6282192347565';
+                const phoneNumber = '6282349869867';
                 const url = `https://wa.me/${phoneNumber}?text=${message}`;
                 window.open(url, '_blank');
-            });
-
-            document.querySelectorAll('.whatsapp-order-btn').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const name = e.target.getAttribute('data-name');
-                    const price = parseInt(e.target.getAttribute('data-price'));
-                    
-                    const message = generateSingleOrderMessage(name, price);
-                    const phoneNumber = '6282192347565';
-                    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-                    window.open(url, '_blank');
-                });
             });
 
             const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -803,105 +1072,17 @@
                     }
                 });
             }
-            document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const name = e.target.getAttribute('data-name');
-                    const price = parseInt(e.target.getAttribute('data-price'));
-                    
-                    const existingItemIndex = cart.findIndex(item => item.name === name);
-                    
-                    if (existingItemIndex !== -1) {
-                        cart[existingItemIndex].quantity += 1;
-                    } else {
-                        cart.push({ name, price, quantity: 1 });
-                    }
-                    
-                    saveCart();
-                    updateCartCount();
-                    
-                    const toast = document.createElement('div');
-                    toast.className = 'form-success';
-                    toast.innerHTML = `
-                        <i class="fas fa-check-circle"></i>
-                        <span>${name} ditambahkan ke keranjang!</span>
-                    `;
-                    document.body.appendChild(toast);
-                    
-                    setTimeout(() => {
-                        if (document.body.contains(toast)) {
-                            document.body.removeChild(toast);
-                        }
-                    }, 3000);
-                });
-            });
 
-            const menuTabs = document.querySelectorAll('.menu-tab');
-            const menuCategories = document.querySelectorAll('.menu-category');
-            const menuItems = document.querySelectorAll('.menu-item-card');
-            
-            menuTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    menuTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    menuCategories.forEach(cat => cat.classList.remove('active'));
-                    const categoryId = tab.getAttribute('data-category');
-                    if (categoryId === 'all') {
-                        document.getElementById('all').classList.add('active');
-                    } else {
-                        document.getElementById(categoryId).classList.add('active');
-                        const categoryContainer = document.getElementById(categoryId).querySelector('.grid');
-                        categoryContainer.innerHTML = '';
-                        menuItems.forEach(item => {
-                            const itemCategories = item.getAttribute('data-category').split(' ');
-                            if (itemCategories.includes(categoryId)) {
-                                const clonedItem = item.cloneNode(true);
-                                categoryContainer.appendChild(clonedItem);
-     
-                                clonedItem.querySelector('.add-to-cart').addEventListener('click', (e) => {
-                                    const name = e.target.getAttribute('data-name');
-                                    const price = parseInt(e.target.getAttribute('data-price'));
-                                    
-                                    const existingItemIndex = cart.findIndex(item => item.name === name);
-                                    
-                                    if (existingItemIndex !== -1) {
-                                        cart[existingItemIndex].quantity += 1;
-                                    } else {
-                                        cart.push({ name, price, quantity: 1 });
-                                    }
-                                    
-                                    saveCart();
-                                    updateCartCount();
-                                    
-                                    const toast = document.createElement('div');
-                                    toast.className = 'form-success';
-                                    toast.innerHTML = `
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>${name} ditambahkan ke keranjang!</span>
-                                    `;
-                                    document.body.appendChild(toast);
-                                    
-                                    setTimeout(() => {
-                                        if (document.body.contains(toast)) {
-                                            document.body.removeChild(toast);
-                                        }
-                                    }, 3000);
-                                });
-
-                                clonedItem.querySelector('.whatsapp-order-btn').addEventListener('click', (e) => {
-                                    const name = e.target.getAttribute('data-name');
-                                    const price = parseInt(e.target.getAttribute('data-price'));
-                                    
-                                    const message = generateSingleOrderMessage(name, price);
-                                    const phoneNumber = '6282192347565';
-                                    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-                                    window.open(url, '_blank');
-                                });
-                            }
-                        });
-                    }
-                });
-            });
             updateCartCount();
+        
+            if (cart.length === 0) {
+                cart = [
+                    { name: "Kopi Aren", price: 10, quantity: 3 },
+                    { name: "Kopi Signature Cuss", price: 12, quantity: 3 }
+                ];
+                saveCart();
+                updateCartCount();
+            }
         });
     </script>
 </body>
