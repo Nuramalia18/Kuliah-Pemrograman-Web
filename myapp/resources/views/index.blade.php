@@ -447,19 +447,6 @@
                    </a>
                 </div>
 
-                <ul class="hidden md:flex space-x-8 items-center">
-                    <li><a href="/index" class="hover:text-red-600 transition font-semibold text-red-600">Home</a></li>
-                    <li><a href="/menu" class="hover:text-red-600 transition font-semibold">Menu</a></li>
-                    <li><a href="/about" class="hover:text-red-600 transition font-semibold">Tentang</a></li>
-                    <li><a href="/contact" class="hover:text-red-600 transition font-semibold">Kontak</a></li>
-                    <li>
-                        <a href="#" class="cart-icon hover:text-red-600 transition font-semibold relative magnetic-btn" id="cart-button">
-                            <i class="fas fa-shopping-cart text-xl"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-
                 <div class="md:hidden flex items-center space-x-4">
                     <a href="#" class="cart-icon relative magnetic-btn" id="mobile-cart-button">
                         <i class="fas fa-shopping-cart text-xl"></i>
